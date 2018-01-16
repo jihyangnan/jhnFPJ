@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		
+	<!-- 오라클 디비 연동 -->
+    <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+        id="dataSource">
+        <property value="oracle.jdbc.driver.OracleDriver" name="driverClassName" />
+        <property value="jdbc:oracle:thin:@localhost:1521:orcl" name="url" />
+        <property value="jhnpro" name="username" />
+        <property value="0913" name="password" />
+    </bean>
+    
+    <!--  SqlSessionFactory -->
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean" id="SqlSessionFactory">
+        <property name="dataSource" ref="dataSource" />
+        
+        <!-- MyBatis 설정 파일의 위치를 지정 -->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        
+        <!--  SQL 파일의 위치를 지정 -->
+        <property name="mapperLocations" value="classpath:sqlmap/*.xml"/>
+    </bean>
+    <!-- 지정된 베이스 패키지에서 DAO(Mapper) 를 검색하여 등록합니다. -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> 
+        <property name="basePackage" value="com.yolo.dao" /> 
+    </bean> 
+    
+    <!-- 트랜잭션 매니저 bean 을 등록합니다. --> 
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> 
+        <property name="dataSource" ref="dataSource" /> 
+    </bean> 
+    
+    <!-- 아노테이션 기반의 트랜잭션을 사용합니다. --> 
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    
+</beans>

@@ -1,0 +1,573 @@
+@charset "EUC-KR";
+/*
+body{
+    background-image: url('.../images/main/main.jpg');
+    background-repeat:no-repeat;
+	background-position:center top;
+}
+*/
+@font-face{
+	font-family:'Tmon';
+	src:url('../font/TmonMonsori.ttf.ttf');
+	font-family:'bmdohyen';
+	src:url('../font/BMDOHYEON_ttf.ttf');
+}
+#content{
+	position:relative;
+	min-height:100%;
+	margin:0px 0px -105px 0px;
+}
+
+.wid_size{
+	width:100%;
+	margin:0px auto;
+	padding:0px 0px 6px 0px;
+	float:left;
+	position:relative;
+}
+.menu_hr{
+	border-color: #4cbaff;
+	border-width:2px;
+	float:left;
+	margin:0px auto;
+	width:100%;
+}
+/*----------- 로고----------------*/
+@media screen and (min-width: 1200px) {
+	#logo_menu{
+		width:1200px;
+		margin:auto;
+	}
+	#main_logo{
+		float:left;
+		margin:auto;
+		padding:18px 0px 0px 61px;
+		display:inline-block;
+	}
+	#nickname{
+		float:right;
+		padding:1.7% 7.3% 0% 0%;
+		margin:auto;
+		font-size:11pt;
+		font-weight:bold;
+		display:none;
+	}
+	/*----------- 메뉴바 ----------------*/
+	.login_before{
+		display:block;
+	}
+	.login_after{
+		display:none;
+	}
+	#main_bar{
+		padding-top:45px;
+	}
+	#main_bar ul{
+		float:none;
+		padding:2.8% 0% 0% 7%;
+		margin:0px 0px 30px 162px;
+	}
+	#main_bar li{
+		padding:0px 9.5px;
+		width:149px;
+		height:26px;
+		font-size:13pt;
+		font-weight:bold;
+		display:inline-block;
+		line-height:25px;
+		text-align:center;
+		float:left;
+	}
+	.de_menubar{
+		text-align:center;
+	}
+	#main_bar ul ul{
+		display:none;
+		padding:0px;
+		margin:0px 0px 0px 10px;
+		position:relative;
+	}
+	#main_bar ul li:hover{
+		background-color:#7fc7ff;
+	}
+	#main_bar ul li:hover>a{
+		color:#ffffff;
+	}
+	#main_bar ul li:hover ul{ 
+		display:block;
+	}
+	#main_bar ul ul li{
+		float:none;
+		margin-left:-19px;
+		background-color:#ffffff;
+	}
+	#main_bar ul ul li img{
+		width:20%;
+		vertical-align:middle;
+	}
+	.jbFixed {
+		position: fixed;
+		padding-bottom:5px;
+		top:0px;
+		border-bottom:2px solid #4cbaff;
+		background-color:white;
+	}
+}
+/*----------화면 사이즈 작을때 메뉴바-------------*/
+@media screen and (min-width:480px) and (max-width:1200px) {
+	#logo_menu{
+		margin:auto;
+	}
+	#main_logo{
+		float:left;
+		margin:auto;
+		padding:18px 0px 0px 45px;
+		display:inline-block;
+	}
+	#nickname{
+		float:right;
+		padding:1.7% 7.3% 0% 0%;
+		margin:auto;
+		font-size:11pt;
+		font-weight:bold;
+		display:none;
+	}
+	/*----------- 메뉴바 ----------------*/
+	.login_before{
+		display:block;
+	}
+	.login_after{
+		display:none;
+	}
+	/*----------- 메뉴바 ----------------*/
+	#main_bar ul{
+		float:left;
+		padding:2.8% 0% 0% 7%;
+		margin:auto;
+	}
+	#main_bar li{
+		padding:0px 9.5px;
+		width:130px;
+		height:26px;
+		font-size:13pt;
+		font-weight:bold;
+		display:inline-block;
+		line-height:25px;
+		text-align:center;
+	}
+	.de_menubar{
+		text-align:center;
+	}
+	#main_bar ul ul{
+		display:none;
+		padding:0px;
+		margin:0px 0px 0px 10px;
+		position:relative;
+	}
+	#main_bar ul li:hover{
+		background-color:#7fc7ff;
+	}
+	#main_bar ul li:hover>a{
+		color:#ffffff;
+	}
+	#main_bar ul li:hover ul{ 
+		display:block;
+	}
+	#main_bar ul ul li{
+		float:none;
+		margin-left:-19px;
+		background-color:#ffffff;
+	}
+	#main_bar ul ul li img{
+		width:20%;
+		vertical-align:middle;
+	}
+	.jbFixed {
+		position: fixed;
+		padding-bottom:5px;
+		top:0px;
+		border-bottom:2px solid #4cbaff;
+		background-color:white;
+	}
+}
+/*----------- 메인 view1 ----------------*/
+#main_view1{
+	background-color:#f1f9fb;
+	margin:0px auto;
+	width:100%;
+	text-align:center;
+	padding:0px;
+	float:left;
+}
+#main_view1 img{
+	max-width:100%;
+}
+@media screen and (min-width:480px) and (max-width:1200px) {
+	#main_view1{
+		background-color:#f1f9fb;
+		margin:0px auto;
+		width:100%;
+		text-align:center;
+		padding:0px;
+		float:left;
+	}
+	#main_view1 img{
+		max-width:90%;
+	}
+}
+
+/*----------- 인기 투어 / 추천 발자국 ----------------*/
+@media screen and (min-width: 1200px) {
+	#main_rec{
+		padding:50px 0px;
+	}
+	#main_rec_notice{
+		max-width:1200px;
+		margin:auto;
+		
+	}
+	#main_ret ul li{
+		display:block;
+		padding-top:10px;
+		float:left;
+	}
+	#main_ref ul li{
+		display:block;
+		padding-top:10px;
+		float:right;
+	}
+	.main_recommends{
+		display:inline;
+		padding-left:20%;
+		font-size:23pt;
+		font-family:'bmdohyen' !important;
+	}
+	.main_recommends2{
+		display:inline;
+		padding-left:20%;
+		font-size:23pt;
+		font-family:'bmdohyen' !important;
+	}
+	.rec_foot{
+		float:right; 
+		padding-left:30px;
+	}
+	.main_more{
+		display:inline;
+		font-size:10pt;
+		font-weight:bold;
+		font-family:'bmdohyen' !important;
+		float:right;
+		padding-top:10px;
+	}
+	.main_more a{
+		color:#7fc7ff;
+	}
+	.tour_slide_img{
+		display:none;
+		padding-left:60px; padding-top:15px;
+	}
+	#slide_basic{
+		margin-left:50px;
+		margin-top:10px;
+	}
+	#slide_basic ul li{
+		display:inline-block;
+	}
+	.slide_demo{
+		background-color:#80c7ff;
+		color:#ffffff;
+		font-family:'bmdohyen' !important;
+		font-size:12pt;
+		padding: 10px 20px 10px 20px;
+		border-radius : 130px;
+		margin-right:5px;
+	}
+	.slide_on{
+		background-color:#80c7ff;
+		color:#ffffff;
+		font-family:'bmdohyen' !important;
+		font-size:12pt;
+		padding: 8px 10px 8px 10px;
+		border-radius : 130px;
+		margin-right:5px;
+		border:7px solid #ffc000;
+	}
+	/*-----------------추천 발자국 ------------------------*/
+	.header {
+		background-color: #80c7ff;
+		color: white;
+		font-size: 1.5em;
+		font-weight:bold;
+		padding: 0.7rem;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	.foot_rec_img {
+		border-radius: 50%;
+		height: 40px;
+		width: 50px;
+	}
+	.table-users {
+		border: 1px solid #5ec1ff;
+		border-radius: 10px;
+		box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+		max-width: calc(100% - 2em);
+		margin: 1.3em auto;
+		overflow: hidden;
+		width: 550px;
+	}
+	.foot_table {
+		width: 100%;
+	}
+	.foot_table th {
+		color: #2b686e;
+		padding: 10px;
+		text-align:center;
+		font-weight:bold;
+		font-size:9pt;
+		background-color: #daeff1;
+	}
+	.foot_table table td {
+		text-align: center;
+		vertical-align: middle;
+		padding:8px 0px 8px 0px;
+	}
+	.foot_table table td:last-child {
+		font-size: 0.95em;
+		line-height: 1.4;
+		text-align: left;
+	}
+	.foot_table table tr:nth-child(2n) {
+		background-color: white;
+	}
+	.foot_table table tr:nth-child(2n+1) {
+		background-color: #f1f9fb;
+	}
+}
+@media screen and (min-width:480px) and (max-width:1200px) {
+	#main_rec{
+		padding:50px 0px;
+	}
+	#main_rec_notice{
+		max-width:100%;
+		margin:auto;
+	}
+	#main_ret ul li{
+		display:inline-block;
+		padding-top:8px;
+		display:inline-block;
+	}
+	.main_recommends{
+		display:inline;
+		padding-left:20%;
+		font-size:23pt;
+		font-family:'bmdohyen' !important;
+	}
+	.main_recommends2{
+		display:inline;
+		padding-left:20%;
+		font-size:23pt;
+		font-family:'bmdohyen' !important;
+	}
+	.rec_foot{
+		float:left;
+		padding-left:6.5%;
+		padding-top:30px;
+	}
+	.main_more{
+		display:inline;
+		font-size:10pt;
+		font-weight:bold;
+		font-family:'bmdohyen' !important;
+		float:right;
+		padding-top:10px;
+	}
+	.main_more a{
+		color:#7fc7ff;
+	}
+	.tour_slide_img{
+		display:none;
+		padding-left:60px; padding-top:15px;
+	}
+	#slide_basic{
+		margin-left:50px;
+		margin-top:7px;
+	}
+	#slide_basic ul li{
+		display:inline-block;
+	}
+	.slide_demo{
+		background-color:#80c7ff;
+		color:#ffffff;
+		font-family:'bmdohyen' !important;
+		font-size:12pt;
+		padding: 10px 20px 10px 20px;
+		border-radius : 130px;
+		margin-right:5px;
+	}
+	.slide_on{
+		background-color:#80c7ff;
+		color:#ffffff;
+		font-family:'bmdohyen' !important;
+		font-size:12pt;
+		padding: 5px 10px 5px 10px;
+		border-radius : 130px;
+		margin-right:5px;
+		border:10px solid #ffc000;
+	}
+	/*-----------------추천 발자국 ------------------------*/
+	.header {
+		background-color: #80c7ff;
+		color: white;
+		font-size: 1.5em;
+		font-weight:bold;
+		padding: 0.7rem;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	.foot_rec_img {
+		border-radius: 50%;
+		height: 40px;
+		width: 50px;
+	}
+	.table-users {
+		border: 1px solid #5ec1ff;
+		border-radius: 10px;
+		box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
+		max-width: calc(100% - 2em);
+		margin: 1.3em auto;
+		overflow: hidden;
+		width: 550px;
+	}
+	.foot_table {
+		width: 100%;
+	}
+	.foot_table th {
+		color: #2b686e;
+		padding: 10px;
+		text-align:center;
+		font-weight:bold;
+		font-size:9pt;
+		background-color: #daeff1;
+	}
+	.foot_table table td {
+		text-align: center;
+		vertical-align: middle;
+		padding:8px 0px 8px 0px;
+	}
+	.foot_table table td:last-child {
+		font-size: 0.95em;
+		line-height: 1.4;
+		text-align: left;
+	}
+	.foot_table table tr:nth-child(2n) {
+		background-color: white;
+	}
+	.foot_table table tr:nth-child(2n+1) {
+		background-color: #f1f9fb;
+	}
+}
+
+/*----------- 공지사항 ----------------*/
+.main_notice{
+	font-size:23pt;
+	font-family:'bmdohyen' !important;
+	text-align:center;
+}
+.notice_tb{
+	width:90%;
+}
+.notice_tb tr{
+	margin: 0 auto;
+	font-size: 1.2em;
+	margin-bottom: 15px;
+}
+.notice_tb th{
+	font-size:12pt;
+	font-weight:bold;
+	background: #c9dff0;
+	font-weight: bold;
+	padding: 12px 30px;
+}
+.notice_tb td{
+	font-size:10pt;
+	padding: 15px 15px;
+
+}
+.notice_td {
+	width:25%;
+	text-align:center;
+	font-size:11pt;
+	padding: 15px 10px;
+}
+/*-----------하단 foot----------------*/
+.foot_bk{
+	background-color:#5b7f9c;
+	margin:50px 0px 0px 0px;
+	padding:0px;
+	float:left;
+	width:100%;
+}
+#foot_logo{
+	 float:left; 
+	 display:inline-block;
+	 vertical-align:middle;
+}
+#foot{
+	margin:auto;
+	padding:20px 0px 20px 0px;
+	max-width:1080px;
+}
+.foot_text{
+	float:none;
+	font-size:10pt;
+	display:block;
+	color:white;
+	padding:5px 0px 5px 74px;
+}
+#foot_yolo{
+	float:right;
+	color:white;
+	font-size:35pt;
+	font-family:'bmdohyen' !important;
+	padding-top:13px;
+
+}
+
+
+@media screen and (min-width:480px) and (max-width:910px) {
+	.foot_bk{
+		background-color:#5b7f9c;
+		margin:30px 0px 0px 0px;
+		padding:0px;
+	}
+	#foot_yolo{
+		float:right;
+		color:white;
+		font-size:25pt;
+		font-family:'bmdohyen' !important;
+		padding-top:13px;
+	}
+}
+footer{
+	height:105px;
+	position:relative;
+	width:100%;
+	bottom:0px;
+}
+#login_footer{
+	height:105px;
+	position:fixed;
+	width:100%;
+	bottom:0px;
+}
+@media and (min-height:480px) and (max-height:800px) {
+	#login_footer{
+		height:105px;
+		position:relative;
+		width:100%;
+		bottom:0px;
+		margin-top:30px;
+	}
+}

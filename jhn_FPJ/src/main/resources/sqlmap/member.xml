@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<!-- 맵핑될 DAO 인터페이스의 Full name 을 줍니다. --> 
+<mapper namespace="com.yolo.dao.MemberDAO"> 
+<!-- 로그인 처리 -->
+    <select id="loginIdCheck" resultType="String"> 
+        SELECT password FROM MEMBER WHERE id=#{id}
+    </select>
+    <select id="pertypeCheck" resultType="String"> 
+        SELECT pertype FROM MEMBER WHERE id=#{id}
+    </select>
+<!--  로그인한 사용자 정보 조회 -->
+    <select id="memberInfo" resultType="com.yolo.vo.MemberVO">
+        SELECT 
+        id AS id, password AS password, sex AS sex, calender AS calender, 
+        TO_CHAR(birth, 'yyyy') AS year, TO_CHAR(birth, 'mm') AS month, TO_CHAR(birth, 'dd') AS day,
+        addressnum AS addressnum, address1 AS address1, address2 AS address2,
+        email AS email,
+        phone AS phone,
+        interest_land_total AS interestLandTotal,
+        trip_style_list AS tripStyleList,
+        inc_tripno AS incTripno,
+        outc_tripno AS outcTripno,
+        pertype AS pertype
+        FROM MEMBER WHERE id=#{id}
+    </select>
+    
+    <!--  회원 가입 -->
+    <insert id="insertMembers" parameterType="com.yolo.vo.MemberVO">
+        INSERT INTO MEMBER
+        (id, password, sex, calender, birth, addressnum, address1, address2, email, phone, interest_land_total, trip_style_list, inc_tripno, outc_tripno, pertype) 
+        VALUES (#{id}, #{password}, #{sex}, #{calender}, #{birth}, #{addressnum}, #{address1}, #{address2}, #{email}, #{phone}, #{interestLandTotal}, #{tripStyleList},#{incTripno}, #{outcTripno}, #{pertype})        
+    </insert>
+    
+    <!-- 회원 정보 수정 -->
+    <update id="updateMembers" parameterType="com.yolo.vo.MemberVO">
+        UPDATE MEMBER SET
+        password = #{password},
+        calender = #{calender},
+        birth = #{birth},
+        addressnum = #{addressnum},
+        address1 = #{address1},
+        address2 = #{address2},
+        email = #{email},
+        phone = #{phone},
+        interest_land_total = #{interestLandTotal},
+        trip_style_list = #{tripStyleList},
+        inc_tripno = #{incTripno},
+        outc_tripno = #{outcTripno}
+        WHERE id=#{id}
+    </update>
+</mapper>

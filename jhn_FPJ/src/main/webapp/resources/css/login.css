@@ -1,0 +1,317 @@
+@charset "EUC-KR";
+@media (min-width:1080px){
+	#login_box{
+		margin:0px auto;
+		padding-top:50px;
+		display:table;
+		width:650px;
+		height:100%;
+		float:none;
+	}
+}
+
+@media (max-width:1080px){
+	#login_box{
+		margin:0px auto;
+		padding-top:50px;
+		display:table;
+		width:75%;
+		height:100%;
+		float:none;
+	}
+}
+.loginpage {
+    border: 3px solid #f1f1f1;
+}
+.login_btn{
+	background-color: #80c7ff;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+	font-size:12pt;
+	font-weight:bold;
+}
+.login_btn:hover {
+    opacity: 0.8;
+}
+
+#login_page input[type=text], #login_page input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size:11pt;
+}
+.joinbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+	font-weight:normal;
+	font-size:10pt;
+	color: white;
+	margin: 8px 0;
+	border: none;
+	font-weight:bold;
+}
+.joinbtn:hover{
+  	  opacity: 0.8;
+}
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+.container {
+    padding: 16px;
+	width:100%;
+	font-size:10pt;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .joinbtn {
+		width: 100%;
+		font-weight:normal;
+		font-size:10pt;
+    }
+    .joinbtn:hover{
+  	  opacity: 0.8;
+    }
+}
+
+/*---------------------------------------------------------------------*/
+/*--------- 회원 가입----------------*/
+@media (min-width:1080px){
+	#join_box{
+		margin:0px auto;
+		padding-top:50px;
+		display:table;
+		width:65%;
+
+	}
+}
+
+@media (max-width:1080px){
+	#join_box{
+		margin:0px auto;
+		padding-top:50px;
+		display:table;
+		width:90%;
+		height:100%;
+		float:none;
+	}
+}
+.join_text {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size:11pt;
+}
+.postcodify_postcode5{
+	width: 100px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size:11pt;
+}
+.postcodify_address{
+	width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size:11pt;
+}
+.postcodify_details{
+	width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size:11pt;
+}
+#join_page label{
+	width:110px;
+	padding:12px 0px;
+	font-size:11pt;
+}
+.btn-primary{
+    width: auto;	
+	vertical-align:middle;
+	margin:0px auto;
+}
+.join_btn{
+	background-color: #80c7ff;
+    color: white;
+    padding: 14px 20px;
+    margin:0px auto;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+	font-size:12pt;
+	font-weight:bold;
+	display:inline-block;
+}
+.join_btn:hover {
+    opacity: 0.8;
+}
+.int_trip{
+	padding:0px 30px 0px 0px;
+
+}
+.vertical_stayle{
+	vertical-align:text-bottom;
+}
+.borth{
+	width: 80px;
+    padding: 12px 10px;
+    margin: 8px 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+	font-size:10pt;
+}
+.email{
+	width: 20%;
+    padding: 12px 10px;
+    margin: 8px 5px 8px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+	font-size:10pt;
+}
+.phone{
+	width: 70px;
+    padding: 12px 10px;
+    margin: 8px 5px 8px 0px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+	font-size:10pt;	
+}
+#etc_trip{
+    padding: 12px 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+	font-size:10pt;
+	display:none;
+	vertical-align: bottom;
+}
+#save_cancel{
+	margin:0px auto;
+	text-align:center;
+}
+
+/*--------------------- 회원가입 완료 --------------------------------*/
+.join_success{
+	width:150px;
+	border:1px solid #4cbaff;
+	padding:12px 0px;
+	font-size:11pt;
+	text-align:center;
+}
+.join_value{
+	border:1px solid #4cbaff;
+	padding:12px 10px;
+	font-size:11pt;
+	width:80%;
+	display:inline-block;
+	height:40px;
+	vertical-align: top;
+}
+.address_th{
+	display:inline-block;
+	height:190px;
+	vertical-align: top;
+}
+.address_text{
+	display:inline-block;
+	margin:0px auto;
+	width:84%;
+}
+.address_th_success{
+	display:inline-block;
+	height:98px;
+	vertical-align: top;
+	padding-top:6%;
+	border:1px solid #4cbaff;
+	text-align: center;
+	width:110px;
+	font-size:11pt;
+}
+.address_text_success{
+	display:inline-block;
+	margin:0px auto;
+	border:1px solid #4cbaff;
+	width:80%;
+	padding:12px 10px;
+	font-size:11pt;
+}
+
+.search_password_btn{
+	background-color: #80c7ff;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+	font-size:12pt;
+	font-weight:bold;
+}
+.search_password_btn:hover {
+    opacity: 0.8;
+}
+/* -----------------아이디 체크 Form ---------------------- */
+.id_check_text1{
+	font-size:14pt;
+	text-align: center;
+	padding:20px 20px 10px 20px;
+}
+#chk{
+	font-size:12pt;
+	text-align:center;
+}
+.search_Id{
+	width:150px;
+	height:30px;
+	padding:5px;
+}
+.join_ustbtn{
+	background-color: #80c7ff;
+    color: white;
+    padding: 10px 18px;
+    margin:0px auto;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+	font-size:10pt;
+	font-weight:bold;
+	display:inline-block;
+}
+.join_ustbtn:hover {
+    opacity: 0.8;
+}
+
