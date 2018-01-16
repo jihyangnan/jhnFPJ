@@ -19,7 +19,7 @@
 </head>
 <body>
 <div id="body">
-    <form method="post" action="MemberJoinAction.do" id="frm" name="userInfo">
+    <form method="post" action="memberJoinAction.do" id="frm" name="userInfo">
         <!------------------ Content 시작 ------------------------->
         <div id="join_box">
             <div class="imgcontainer">

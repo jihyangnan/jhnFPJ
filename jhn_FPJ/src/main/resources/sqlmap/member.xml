@@ -49,4 +49,15 @@
         outc_tripno = #{outcTripno}
         WHERE id=#{id}
     </update>
+    
+    <!-- 회원 탈퇴 -->
+    <!-- 회원 삭제 -->
+    <delete id="deleteMember">
+        DELETE FROM MEMBER WHERE id=#{id}
+    </delete>
+    
+    <!-- 회원 탈퇴를 위한 비밀번호 찾기 -->
+    <select id="checkPassword" resultType="int" parameterType="HashMap">
+        SELECT COUNT(*) FROM MEMBER WHERE id=#{id} AND password=#{password}
+    </select>
 </mapper>

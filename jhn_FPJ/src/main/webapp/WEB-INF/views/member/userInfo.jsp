@@ -81,7 +81,7 @@
             <br />
             <br />
             <div id="save_cancel">
-                <a href="MemberModifyFormAction.do"><button type="button" class="join_btn">회원 정보 수정</button></a>
+                <a href="memberModifyFormAction.do"><button type="button" class="join_btn">회원 정보 수정</button></a>
             </div>
             <br />
         </div>

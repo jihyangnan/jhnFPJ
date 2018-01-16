@@ -1,6 +1,7 @@
 package com.yolo.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
@@ -17,4 +18,6 @@ public interface MemberDAO {
 	public void insertMembers(MemberVO vo);
 	//회원 정보 수정
 	public void updateMembers(MemberVO vo);
+	public void deleteMember(String id);
+	public int checkPassword(Map<String, String> map);
 }

@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <%  
-System.out.println(request.getAttribute("perType"));
     if (session.getAttribute("sessionID") == null) { //로그인이 안되었을 때  
 %>
         <script type="text/javascript">
@@ -94,10 +92,10 @@ System.out.println(request.getAttribute("perType"));
                             <a href="resources/member/view/apply_tour_story.jsp">투어 신청 내역</a>
                         </li>
                         <li class="login_after">
-                            <a href="MemberInfoAction.do?userId=<%=session.getAttribute("sessionID")%>">회원정보수정</a>
+                            <a href="memberInfoAction.do?userId=<%=session.getAttribute("sessionID")%>">회원정보수정</a>
                         </li>
                         <li class="login_after" id="user">
-                            <a href="DeleteForm.do">회원탈퇴</a>
+                            <a href="deleteForm.do">회원탈퇴</a>
                         </li>
                     </ul>
                 </li>

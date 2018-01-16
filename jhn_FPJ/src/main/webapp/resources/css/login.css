@@ -315,3 +315,69 @@ span.psw {
     opacity: 0.8;
 }
 
+/* -----------------È¸¿ø Å»Åð Form---------------------- */
+.deletepage {
+    border: 3px solid #f1f1f1;
+    margin-top:50px;
+}
+.del_label{
+	color:red;
+	font-weight: normal;
+	padding: 5px 0px;
+	display:block;
+}
+.del_first_tex{
+	margin:0px;
+	width:80px;
+	font-size:15pt;
+	font-weight: bold;
+	display: inline-block;
+	padding : 15px 5px 10px 0px;
+}
+.del_first_val{
+	margin:0px auto;
+    padding : 0px 10px;
+    font-size:15pt;
+    font-weight: normal;
+    display: inline-block;
+    
+}
+.delete_btn{
+    background-color: #80c7ff;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    width: 40%;
+    font-size:12pt;
+    font-weight:bold;
+}
+.delete_btn:hover {
+    opacity: 0.8;
+}
+.cancel_btn {
+    width: 40%;
+    padding: 14px 20px;
+    background-color: #f44336;
+    font-size:12pt;
+    color: white;
+    margin: 8px 0;
+    border: none;
+    font-weight:bold;
+}
+.cancel_btn:hover{
+      opacity: 0.8;
+}
+.del_id_text{
+	border:0px;
+	font-size:12pt;
+}
+.del_pw_text{
+	width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size:11pt;
+}

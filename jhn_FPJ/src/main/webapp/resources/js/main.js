@@ -224,7 +224,7 @@ function sendCheckValue(){
 }
 
 ///////////////////////////////////로그인 아이디 체크//////////////////////////////////////////////////////
-function loginIdCheck(){
+/*function loginIdCheck(){
 	alert(1)
 	inputForm = eval("document.loginInfo");
 	if(!inputForm.id.value){
@@ -237,7 +237,7 @@ function loginIdCheck(){
 		inputForm.password.focus();
 		return false;
 	}
-}
+}*/
 ///////////////////////////////////주소 api//////////////////////////////////////////////////////
 function setAddress() {
 	new daum.Postcode({

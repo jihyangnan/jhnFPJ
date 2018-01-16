@@ -17,4 +17,6 @@ public interface MemberService {
 	public void jointMember(MemberVO vo);
 	//회원 정보 수정
 	public void modifyMember(MemberVO vo, String id);
+	public int checkRw(String id, String password);
+	public void deleteMember(String id);
 }

@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -113,7 +114,7 @@ public class MemberServiceImpl implements MemberService {
 				}
 			}
 		vo.setTripStyleList(tripStyleList);
-		
+		memberDao.insertMembers(vo);
 	}
 	
 	@Override
@@ -151,5 +152,19 @@ public class MemberServiceImpl implements MemberService {
 			}
 		vo.setTripStyleList(tripStyleList);
 		memberDao.updateMembers(vo);
+	}
+	
+	//회원 탈퇴하기 위한 비밀번호 확인
+	public int checkRw(String id, String password) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("id", id);
+		map.put("password", password);
+		int resultCk = memberDao.checkPassword(map);
+		return resultCk;
+	}
+	
+	//회원 탈퇴 수행
+	public void deleteMember(String id) {
+		memberDao.deleteMember(id);
 	}
 }

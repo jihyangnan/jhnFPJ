@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%
     String contentPage = request.getParameter("contentPage");
-System.out.println("contentPage : " + contentPage);
     if(contentPage == null) {contentPage="mainView.jsp";}
 %>
 <!DOCTYPE>

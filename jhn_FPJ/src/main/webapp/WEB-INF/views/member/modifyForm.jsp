@@ -40,7 +40,7 @@ function init(){
 <div id="body">
     <!------------------ Content 시작 ------------------------->
     <!-- 입력한 값을 전송하기 위해 form 태그 사용 -->
-    <form method="post" action="MemberModifyAction.do" id="frm" name="userInfo">
+    <form method="post" action="memberModifyAction.do" id="frm" name="userInfo">
         <div id="join_box">
             <div class="imgcontainer">
                 <h1><%=id%> 님 정보
