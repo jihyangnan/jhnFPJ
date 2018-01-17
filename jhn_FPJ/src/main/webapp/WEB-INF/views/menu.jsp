@@ -1,33 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%  
-    if (session.getAttribute("sessionID") == null) { //로그인이 안되었을 때  
-%>
+<%-- <% String userId = (String)session.getAttribute("sessionID"); %> --%>
+<c:choose>
+    <c:when test="${sessionID=='admin'}">
         <script type="text/javascript">
-            //닉네임 숨김
+            //닉네임 표시
             $(document).ready(function() {
-                var nickname = document.getElementById("nickname");
-                var pertype_admin = document.getElementById("admin");
-                var login_after_menu = $('.login_after');
-                var login_before_menu = $('.login_before');
-                if (nickname.style.display != "none") {
-                    nickname.style.display = "none"; //숨기기
-                    login_after_menu.css('display', 'none');
-                    login_before_menu.css('display', 'inline-block');
-                    pertype_admin.style.display = "none";
-                }
-            });
-        </script>
-<%
-    }
-    else if(session.getAttribute("sessionID").equals("admin")){  //관리자로 로그인 하였을 경우  
-%>
-        <script type="text/javascript">
-        $(document).ready(function() {
             var nickname = document.getElementById("nickname");
             var pertype_admin = document.getElementById("admin");
-            
             var login_after_menu = $('.login_after');
             var login_before_menu = $('.login_before');
             
@@ -40,28 +21,26 @@
             
         });
         </script>
-<%      
-    }else {  //사용자로 로그인 하였을 경우
-%>
-        <script type="text/javascript">
-            //닉네임 표시
-            $(document).ready(function() {
-                var nickname = document.getElementById("nickname");
-                var pertype_admin = document.getElementById("admin");
-                var login_after_menu = $('.login_after');
-                var login_before_menu = $('.login_before');
-                
-                if (nickname.style.display = "none") {
-                    nickname.style.display = "inline-block"; //숨기기
-                    login_after_menu.css('display', 'inline-block');
-                    login_before_menu.css('display', 'none');
-                    pertype_admin.style.display = "none";
-                }
-            });
-        </script>
-<%
-    }
-%>
+    </c:when>
+    <c:when test="${sessionID!=null}">
+	    <script type="text/javascript">
+	            //닉네임 표시
+	            $(document).ready(function() {
+	                var nickname = document.getElementById("nickname");
+	                var pertype_admin = document.getElementById("admin");
+	                var login_after_menu = $('.login_after');
+	                var login_before_menu = $('.login_before');
+	                
+	                if (nickname.style.display = "none") {
+	                    nickname.style.display = "inline-block"; //숨기기
+	                    login_after_menu.css('display', 'inline-block');
+	                    login_before_menu.css('display', 'none');
+	                    pertype_admin.style.display = "none";
+	                }
+	            });
+	        </script>
+    </c:when>
+</c:choose>
 <!--로고부터 메뉴바까지-->
 <div class="wid_size">
     <div id="logo_menu">
@@ -69,32 +48,32 @@
             <a href="/"><img src="resources/images/main/logo.png" /></a>
         </div>
         <div id="nickname"><!--닉네임-->
-            <img src="resources/images/main/foot.png"><%=session.getAttribute("sessionID")%> 님
-            <a href="memberLogoutAction.do">[로그아웃]</a>
+            <img src="resources/images/main/foot.png">${sessionID} 님
+            <a href="memberLogoutAction.do"><font class="btn_logout">로그아웃</font></a>
         </div>
         <div id="main_bar"><!--메뉴바-->
             <ul>
                 <li>
                     <a href="loginForm.do" class="login_before" >로그인</a> 
-                    <a href="new_write.jsp" class="login_after">새발자국 작성</a> 
+                    <a href="new_write.jsp" class="login_after" style="display:none;">새발자국 작성</a> 
                     <a href="Admin.do" id="admin" style="display:none;">관리자 페이지</a> 
                     <ul>
                         <li class="login_before">
                             <a href="joinForm.do">회원가입</a>
                         </li>
-                        <li class="login_after">
+                        <li class="login_after" style="display:none;">
                             <a href="resources/member/view/mypage.jsp">나의 발자국</a>
                         </li>
-                        <li class="login_after">
+                        <li class="login_after" style="display:none;">
                             <a href="resources/member/view/mybasket.jsp">장바구니</a>
                         </li>
-                        <li class="login_after">
+                        <li class="login_after" style="display:none;">
                             <a href="resources/member/view/apply_tour_story.jsp">투어 신청 내역</a>
                         </li>
-                        <li class="login_after">
-                            <a href="memberInfoAction.do?userId=<%=session.getAttribute("sessionID")%>">회원정보수정</a>
+                        <li class="login_after" style="display:none;">
+                            <a href="memberInfoAction.do?userId=${sessionID}">회원정보수정</a>
                         </li>
-                        <li class="login_after" id="user">
+                        <li class="login_after" id="user" style="display:none;">
                             <a href="deleteForm.do">회원탈퇴</a>
                         </li>
                     </ul>

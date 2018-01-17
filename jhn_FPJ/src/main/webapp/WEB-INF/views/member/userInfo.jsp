@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<%
-    // MemberInfoAction에서 넘긴 회원정보를 추출한다.
-    String id = session.getAttribute("sessionID").toString();
-%>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +9,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="resources/css/bodyreset.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/mainstyle.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/login.css?var=1" />
+<link rel="stylesheet" type="text/css" href="resources/css/member.css?var=1" />
 <script src="resources/js/jquery-3.2.1.min.js"></script>
 <script src="resources/js/main.js" type="text/javascript" charset="UTF-8"></script>
 </head>
@@ -23,13 +18,11 @@
     <!------------------ Content 시작 ------------------------->
     <div id="join_box">
         <div class="imgcontainer">
-            <h1><%= id %>
-                님 정보
-            </h1>
+            <h1>${sessionID} 님 정보</h1>
         </div>
         <div class="container" id="join_page" style="width: 90%;">
             <label class="join_success"><b>ID</b></label> 
-            <span class="join_value"><%=id %></span> <br />
+            <span class="join_value">${sessionID}</span> <br />
             
             <label class="join_success"><b>성별</b></label> 
             <span class="join_value">${memberIf.sex}</span><br /> 

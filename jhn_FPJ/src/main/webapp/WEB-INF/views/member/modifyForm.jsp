@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%
-    String id = session.getAttribute("sessionID").toString();
-%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +8,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="resources/css/bodyreset.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/mainstyle.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/login.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/member.css" />
 <script src="resources/js/jquery-3.2.1.min.js"></script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js?var=1"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -43,13 +40,13 @@ function init(){
     <form method="post" action="memberModifyAction.do" id="frm" name="userInfo">
         <div id="join_box">
             <div class="imgcontainer">
-                <h1><%=id%> 님 정보
+                <h1>${sessionID} 님 정보
                 </h1>
             </div>
 
             <div class="container" id="join_page" style="width: 95%;">
                 <label><b>ID</b></label>
-                <%=id%>
+                ${sessionID}
                 
                 <br /> <label><b>Password</b></label> 
                 <input type="password" name="password" id="pwd_hide" class="join_text" required >

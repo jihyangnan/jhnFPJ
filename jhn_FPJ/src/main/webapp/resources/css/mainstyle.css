@@ -52,13 +52,6 @@ body{
 		font-weight:bold;
 		display:none;
 	}
-	/*----------- 메뉴바 ----------------*/
-	.login_before{
-		display:block;
-	}
-	.login_after{
-		display:none;
-	}
 	#main_bar{
 		padding-top:45px;
 	}
@@ -112,6 +105,13 @@ body{
 		border-bottom:2px solid #4cbaff;
 		background-color:white;
 	}
+	   /*----------- 메뉴바 ----------------*/
+    .login_before{
+        display:block;
+    }
+    .login_after{
+        display:none;
+    }
 }
 /*----------화면 사이즈 작을때 메뉴바-------------*/
 @media screen and (min-width:480px) and (max-width:1200px) {
@@ -130,13 +130,6 @@ body{
 		margin:auto;
 		font-size:11pt;
 		font-weight:bold;
-		display:none;
-	}
-	/*----------- 메뉴바 ----------------*/
-	.login_before{
-		display:block;
-	}
-	.login_after{
 		display:none;
 	}
 	/*----------- 메뉴바 ----------------*/
@@ -189,7 +182,15 @@ body{
 		border-bottom:2px solid #4cbaff;
 		background-color:white;
 	}
+	    /*----------- 메뉴바 ----------------*/
+    .login_before{
+        display:block;
+    }
+    .login_after{
+        display:none;
+    }
 }
+
 /*----------- 메인 view1 ----------------*/
 #main_view1{
 	background-color:#f1f9fb;
@@ -570,4 +571,13 @@ footer{
 		bottom:0px;
 		margin-top:30px;
 	}
+}
+
+.btn_logout{
+	color:#4cbaff;
+	line-height: 20px;
+	border:1px solid #e5e8ef;
+	padding:5px 5px;
+	text-decoration: none;
+
 }

@@ -28,28 +28,23 @@ public class MemberServiceImpl implements MemberService {
 	private static final Logger logger = LoggerFactory.getLogger(MemberServiceImpl.class);
 	
 	@Override
-	 public boolean login(String id, String password){
+	 public String login(String id, String password){
         String dbPassword = memberDao.loginIdCheck(id);
         String dbPertype = memberDao.pertypeCheck(id);
-        if(dbPassword == null) {
-            return false;	//비밀번호가 없는 경우
-        }else{	
-            if(dbPassword==null)
-                return false;	//아이디가 존재할 경우
-            else{
-                if(dbPassword.equals(password)) {	//아이디와 비밀번호가 DB와 일치 할 경우
-                	if( logger.isDebugEnabled() ) {
-                		logger.debug("성공");
-                	}
-                    return true;
-                }else {	//아이디와 비밀번호가 DB와 불일치 할 경우
-                	if( logger.isDebugEnabled() ) {
-                		logger.debug("실패");
-                	}
-                	return false;
-                }
+        if(dbPassword==null)	//아이디가 존재하지 않은 경우
+            return "0";	
+        else{	//아이디가 존재한 경우
+            if(dbPassword.equals(password)) {	//아이디와 비밀번호가 DB와 일치 할 경우
+            	if( logger.isDebugEnabled() ) {
+            		logger.debug("성공");
+            	}
+                return "1";
+            }else {	//아이디와 비밀번호가 DB와 불일치 할 경우
+            	if( logger.isDebugEnabled() ) {
+            		logger.debug("실패");
+            	}
+            	return "2";
             }
-            
         }
     }
 	

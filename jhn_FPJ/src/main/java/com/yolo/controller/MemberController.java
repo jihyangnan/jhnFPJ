@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -49,12 +50,14 @@ public class MemberController  extends HttpServlet{
 	@RequestMapping(value="memberLoginAction.do", method=RequestMethod.POST)
 	public ModelAndView login(String id, String password, HttpSession session) throws SQLException{
 	        ModelAndView mav = new ModelAndView();
-	        boolean result = memberService.login(id, password);
-			 if(result == true){
+	        String result = memberService.login(id, password);
+	        System.out.println("result " + result);
+			 if(result == "1"){
 			    session.setAttribute("sessionID", id);
 				 mav.setViewName("redirect:/");
 			}
-			else{
+			else{//result값이 0, 2, 3일 경우 : 아이디가 존재하지 않은 경우, 비밀번호와 일치하지 않은 경우, 비밀번호가 존재하지 않은 경우
+				session.setAttribute("msg", result);
 			    mav.setViewName("redirect:loginForm.do");
 			    //mav.addObject("msg","fail");
 			}
@@ -72,8 +75,9 @@ public class MemberController  extends HttpServlet{
 	
 	//-----------------회원 가입 처리
     @RequestMapping(value="memberJoinAction.do", method=RequestMethod.POST)
-    public String jointMember(MemberVO vo){
+    public String jointMember(MemberVO vo,  Model model){
         memberService.jointMember(vo);
+        model.addAttribute("joinInfo",vo);
         // * (/)의 유무에 차이
         // /member/list.do : 루트 디렉토리를 기준 /  member/list.do : 현재 디렉토리를 기준 /  member_list.jsp로 리다이렉트
         return form+"joinResultForm";

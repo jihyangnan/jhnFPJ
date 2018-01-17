@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-    String contentPage = request.getParameter("contentPage");
-    if(contentPage == null) {contentPage="mainView.jsp";}
-%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE>
 <html>
 <head>
@@ -22,7 +19,12 @@
     </div><!-- -Menu 끝 -->
     
     <div id="main"><!------- Content 시작 ---------->
-        <jsp:include page="<%=contentPage%>"  />
+        <c:set var="contentPage" value="${param.contentPage}"/>
+            <c:if test="${contentPage==null}">
+            
+                <jsp:include page="mainView.jsp" />
+            </c:if>
+        <jsp:include page="${contentPage }"  />
     </div><!-------- Content 끝 ----------->
 
     <div id="footer"><!-- -Footer 시작 -->

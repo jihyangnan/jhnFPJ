@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="resources/css/bodyreset.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/mainstyle.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/login.css?var=2" />
+<link rel="stylesheet" type="text/css" href="resources/css/member.css?var=2" />
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="resources/js/jquery-3.2.1.min.js"></script>

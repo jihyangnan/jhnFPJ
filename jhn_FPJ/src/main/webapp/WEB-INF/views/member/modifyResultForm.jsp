@@ -3,18 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <%
     request.setCharacterEncoding("UTF-8");
-    String id = (String)session.getAttribute("sessionID");
-%>
-<%
-	//여행 스타일 전체 값 구하기
-	String[] trip_style = request.getParameterValues("tripStyle");
-	String trip_style_list = "";
-	for (int i = 0; trip_style != null && i < trip_style.length; i++) {
-	    trip_style_list += trip_style[i];
-	    if (i < trip_style.length - 1) {
-	        trip_style_list += ", ";
-	    }
-	}
 %>
 <!DOCTYPE html>
 <html>
@@ -24,7 +12,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="resources/css/bodyreset.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/mainstyle.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/login.css" />
+<link rel="stylesheet" type="text/css" href="resources/css/member.css" />
 <script src="resources/js/jquery-3.2.1.min.js"></script>
 <script src="resources/js/main.js?var=2" type="text/javascript" charset="utf-8"></script>
 <script src="resources/js/member.js?var=2" type="text/javascript" charset="utf-8"></script>
@@ -39,7 +27,7 @@
 
         <div class="container" id="join_page" style="width: 90%;">
             <label class="join_success"><b>ID</b></label> 
-            <span class="join_value"><%=id %></span> <br /> 
+            <span class="join_value">${sessionID}</span> <br /> 
             
             <label class="join_success"><b>Password</b></label>
             <span class="join_value">${memberIf.password}</span> <br /> 

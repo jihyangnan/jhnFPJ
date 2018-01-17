@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
-    String id = session.getAttribute("sessionID").toString();
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +9,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="resources/css/bodyreset.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/mainstyle.css?var=1" />
-<link rel="stylesheet" type="text/css" href="resources/css/login.css?var=2" />
+<link rel="stylesheet" type="text/css" href="resources/css/member.css?var=2" />
 <script src="resources/js/jquery-3.2.1.min.js"></script>
 <script src="resources/js/main.js?var=1" type="text/javascript" charset="UTF-8"></script>
 <script src="resources/js/member.js?var=1" type="text/javascript" charset="UTF-8"></script>
@@ -31,7 +28,7 @@
                 <ul>
                     <li class="del_first_tex">ID</li>
                     <li class="del_first_val">
-                    <input type="text" value="<%=id %>" readonly name="id" class="del_id_text">
+                    <input type="text" value="${sessionID}" readonly name="id" class="del_id_text">
                     </li>
                 </ul>
                 <label class="del_first_tex">Password</label>
