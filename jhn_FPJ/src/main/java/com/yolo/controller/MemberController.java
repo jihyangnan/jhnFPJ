@@ -1,7 +1,10 @@
 package com.yolo.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.yolo.dao.MemberDAO;
@@ -76,7 +80,7 @@ public class MemberController  extends HttpServlet{
 	//-----------------회원 가입 처리
     @RequestMapping(value="memberJoinAction.do", method=RequestMethod.POST)
     public String jointMember(MemberVO vo,  Model model){
-        memberService.jointMember(vo);
+       // memberService.jointMember(vo);
         model.addAttribute("joinInfo",vo);
         // * (/)의 유무에 차이
         // /member/list.do : 루트 디렉토리를 기준 /  member/list.do : 현재 디렉토리를 기준 /  member_list.jsp로 리다이렉트
@@ -131,6 +135,39 @@ public class MemberController  extends HttpServlet{
     	}else {	//비밀번호가 일치하지 않는 경우 : 경고창 표시
     		return form+"deleteForm";
     	}
+    }
+    
+    //-----------------아이디 중복 확인 화면 이동
+    @RequestMapping(value="idCheckForm.do", method=RequestMethod.GET)
+	public String idCheckForm(HttpServletRequest request, HttpServletResponse response) {
+		return "member/idCheckForm";
+	}
+    
+    @ResponseBody
+    @RequestMapping(value="MemberIdCheckAction.do", method=RequestMethod.POST)
+    public void MemberIdCheckAction(@RequestParam("id") String id, HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+    	//id_cnt = 0 : 아이디가 중복 되지 않음 / id_cnt = 1 : 중복된 아이디가 존재함.
+    	int cnt = memberService.idCheck(id);
+    	response.setContentType("text/html;charset=UTF-8");
+        response.setHeader("Cache-Control", "no-cache");
+    	PrintWriter out = response.getWriter();
+    	if(cnt==0) {
+    		out.println(cnt);
+        	out.close();
+    	}else {
+			out.println(cnt);
+        	out.close();
+		}
+    	
+    	//request.getParameter("id=" + result);
+    	
+    	/*if(id_cnt==0) result = "0";
+    	else	result = "1";
+    	request.setAttribute("id_cntResult", id_cnt);
+    	request.setAttribute("useId", id);
+    	response.setContentType("text/html;charset=euc-kr");
+    	//response.setContentType("text/html;charset=UTF-8");
+    	response.getWriter().write(result);*/
     }
     
 }

@@ -18,6 +18,10 @@ public interface MemberDAO {
 	public void insertMembers(MemberVO vo);
 	//회원 정보 수정
 	public void updateMembers(MemberVO vo);
+	//회원 탈퇴 처리
 	public void deleteMember(String id);
+	//회원 탈퇴를 하기 위한 비밀번호 체크
 	public int checkPassword(Map<String, String> map);
+	//아이디 중복 확인
+	public int idCheckCnt(String id);
 }

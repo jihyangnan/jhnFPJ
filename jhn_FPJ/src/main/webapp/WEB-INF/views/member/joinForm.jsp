@@ -16,6 +16,7 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="resources/js/jquery-3.2.1.min.js"></script>
 <script src="resources/js/main.js?var=2" type="text/javascript" charset="UTF-8"></script>
+<script src="resources/js/member.js?var=2" type="text/javascript" charset="UTF-8"></script>
 </head>
 <body>
 <div id="body">
@@ -30,9 +31,10 @@
                 <label><b>ID</b></label>
                 <!-- 아이디 입력란에는 키보드 입력시 발생하는 onkeydown 이벤트 발생 / 사용자가 중복체크를 하고 난 뒤 아이디 입력란에 사용 가능한 아이디를 지우고 새로운 아이디를 입력 시  
          중복체크가 되지 않은 것으로 처리하기 위함-->
-                <input type="text" name="id" class="join_text" onkeydown="inputIdChk();" required>
+                <input type="text" name="id" class="join_text" onkeydown="inputIdChk();" id="userId" required>
                 <button type="button" class="btn btn-primary" onClick="openIdChk();">중복확인</button>
-                <br /> <input type="hidden" name="idDuplication" value="idUncheck">
+                <br /> 
+                <input type="hidden" name="idDuplication" value="idUncheck">
                 <!-- 아이디 중복체크를 했는지 판단하기 위한 부분, value값이 idUncheck이면 중복체크를 하지 않은 것 -->
                 
                 <label><b>Password</b></label> 

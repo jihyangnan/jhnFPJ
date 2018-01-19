@@ -129,10 +129,19 @@ function checkValue(){
 		$("[name=interestLandTotal]").val(str);
 	}
 	
+	//비밀번호 크기 조절 (비밀번호는 최대 6자~12자까지 입력 가능합니다.)
+	if(6 <= $("[name=password]").val().length || $("[name=password]").val().length >= 12){
+	}else{
+		alert("비밀번호는 최대 6자~12자까지 입력 가능합니다. \n 정확히 입력 해주세요. ");
+		return false;
+	}
 	// 입력 확인
 	if(document.userInfo.id.value == ""){
 		alert("아이디를 입력하세요.");
 		return false;
+	}else if(form.idDuplication.value != "idCheck"){
+        alert("아이디 중복체크를 해주세요.");
+        return false;
 	}else if(document.userInfo.password.value == ""){
 		alert("비밀번호를 입력하세요.");
 		return false;
@@ -160,70 +169,7 @@ function checkValue(){
 	}
 
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-/* ------------------------------ 아이디 중복체크 화면 open------------------------ */
-function openIdChk(){
-	window.name = "parentForm";
-	window.open("./idCheckForm.jsp", "chkForm", "width=500, height=300, resizable=no, scrollbars=no");
-}
-/*아이디 입력창에 값 입력시 hidden에 idUncheck를 세팅한다.
- * 이렇게 하는 이유는 중복체크 후 다시 아이디 창이 새로운 아이디를 입력했을 때 다시 중복체크를 하도록 한다.
- */
-//아이디 입력란에서 키보드로 값을 입력 시 호출되는 함수. 중복 체크 후 아이디 입력란에 사용 가능한 아이디가 입력되어 있을 때 아이디를 지우고 새로운 아이디를 입력하면 문제가 발생할 수 있다.
-function inputIdChk(){
-	document.userInfo.idDuplication.value = "idUncheck";
-}
 
-//아이디 중복 체크 (idCheckForm.jsp)
-function idCheck(){
-	var id = document.getElementById("userId").value;
-	if(!id){	//아이디값 없을 경우
-		alert("아이디를 입력하지 않았습니다.");
-		return false;
-	}else if((id < "0" || id >"9") && (id < "A" || id > "Z") && (id <"a" || id > "z")){
-		alert("한글 및 특수문자는 아이디로 사용하실 수 없습니다.");
-		return false;
-	}else{
-		var param = "id = " + id;
-		httpRequest = getXMLHttpRequest();
-		httpRequest.onreadystatechange = callback;
-		httpRequest.open("POST", "MemberIdCheckAction.do", true);
-		httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-		httpRequest.send(param);
-	}
-}
-
-/*
- * 서버로 데이터 전달 후 정상적으로 서버에서 데이터를 받을 경우 실행되는 부분이다. 0의 값을 받으면 중복된 아이디가 있는 것이고, 1의 값을 받으면 입력한 아이디는 사용할 수 있는 아이디이다.
- * 취소, 사용하기 버튼에 따른 값 표시
- */
-function callback(){
-	if(httpRequest.readyState == 4)
-		//결과값을 가져온다.
-		var resultText = httpRequest.responseText;
-		if(resultText == 0){
-			alert("사용할 수 없는 아이디 입니다.");
-			document.getElementById("cancelBtn").style.visibility = 'visible'; //아이디가 중복되었을 경우 사용하기 버튼 감추기
-			document.getElementById("useBtn").style.visibility = 'hidden';
-			document.getElementById("msg").innerHTML = "";
-		}else if(resultText ==1){
-			document.getElementById("cancelBtn").style.visibility = 'hidden'; //아이디가 중복되지 않을 경우 사용하기 버튼 표시
-			document.getElementById("seBtn").style.visibility = 'visible';
-			document.getElementById("msg").innerHTML = "사용 가능한 아이디입니다.";
-		}
-}
-//사용하기 버튼 클릭 (사용하기 클릭 시 부모창으로 값 전달)
-function sendCheckValue(){
-	//중복체크 결과인 idCheck 값을 전달 (opener을 이용해 부모창에 있는 hidden의 값을 전달. idCheck가 전달되면 부모창에서는 중복체크를 한것으로 판다.
-	opener.document.userInfo.idDuplication.value = "idCheck";
-	//회원가입 화면의 id입력란에 값을 전달
-	if(opener != null){
-		opener.chkForm = null
-		self.close();
-	}
-}
-
-///////////////////////////////////로그인 아이디 체크//////////////////////////////////////////////////////
 /*function loginIdCheck(){
 	alert(1)
 	inputForm = eval("document.loginInfo");

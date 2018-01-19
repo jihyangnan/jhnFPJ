@@ -162,4 +162,10 @@ public class MemberServiceImpl implements MemberService {
 	public void deleteMember(String id) {
 		memberDao.deleteMember(id);
 	}
+	
+	//아이디 중복 확인
+	public int idCheck(String id) {
+		int cnt = memberDao.idCheckCnt(id);
+		return cnt;
+	}
 }
