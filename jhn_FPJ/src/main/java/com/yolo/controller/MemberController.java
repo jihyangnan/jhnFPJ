@@ -55,8 +55,10 @@ public class MemberController  extends HttpServlet{
 	public ModelAndView login(String id, String password, HttpSession session) throws SQLException{
 	        ModelAndView mav = new ModelAndView();
 	        String result = memberService.login(id, password);
+	        String pertypeResult = memberService.pertypeResult(id);
 			 if(result == "1"){
 			    session.setAttribute("sessionID", id);
+			    session.setAttribute("pertypeResult", pertypeResult);
 				 mav.setViewName("redirect:/");
 			}
 			else{//result값이 0, 2, 3일 경우 : 아이디가 존재하지 않은 경우, 비밀번호와 일치하지 않은 경우, 비밀번호가 존재하지 않은 경우
@@ -122,7 +124,7 @@ public class MemberController  extends HttpServlet{
 		return form+"deleteForm";
 	}
     
-  //-----------------회원 탈퇴 처리 수행
+    //-----------------회원 탈퇴 처리 수행
     @RequestMapping(value="memberDeleteAction.do", method=RequestMethod.POST)
     public String deleteMember(HttpSession session, @RequestParam("id") String id, @RequestParam("password") String password){
     	//비밀번호 확인
@@ -164,6 +166,23 @@ public class MemberController  extends HttpServlet{
   	@RequestMapping(value="searchPasswordForm.do", method=RequestMethod.GET)
   	public String searchPasswordForm(HttpServletRequest request, HttpServletResponse response) {
   		return form+"searchPasswordForm";
+  	}
+  	
+  //-----------------비밀번호 찾기 수행
+    @RequestMapping(value="searchPasswordAction.do", method=RequestMethod.POST)
+    public String searchPassword(@RequestParam("id") String id, @RequestParam("email") String email, HttpServletRequest request){
+    	//비밀번호 확인
+    	String resultPw = memberService.searchPW(id, email);
+    	request.setAttribute("id", id);
+    	request.setAttribute("email", email);
+    	request.setAttribute("searchPw", resultPw);
+    	
+    	return form+"searchPasswordResultForm";
+    }
+    //---------------비밀번호 찾기 결과 화면 이동
+    @RequestMapping(value="searchPasswordResult.do", method=RequestMethod.GET)
+  	public String searchPasswordResult(HttpServletRequest request, HttpServletResponse response) {
+  		return form+"searchPasswordResult";
   	}
     
 }

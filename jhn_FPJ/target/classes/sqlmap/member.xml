@@ -66,4 +66,9 @@
          SELECT COUNT(id) AS cnt FROM MEMBER WHERE id=#{id} -->
        <!--  SELECT ID FROM JSP_MEMBER WHERE id=#{id} -->
     </select>
+    <!-- 비밀번호 찾기 -->
+        <!-- 회원 탈퇴를 위한 비밀번호 찾기 -->
+    <select id="searchPassword" resultType="String" parameterType="HashMap">
+        SELECT password FROM MEMBER WHERE id=#{id} AND email=#{email}
+    </select>
 </mapper>

@@ -24,4 +24,6 @@ public interface MemberDAO {
 	public int checkPassword(Map<String, String> map);
 	//아이디 중복 확인
 	public int idCheckCnt(String id);
+	//비밀번호 찾기
+	public String searchPassword(Map<String, String> map);
 }

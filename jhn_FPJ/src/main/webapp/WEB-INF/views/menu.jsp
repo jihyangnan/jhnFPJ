@@ -38,6 +38,7 @@
 	                    pertype_admin.style.display = "none";
 	                }
 	            });
+	            
 	        </script>
     </c:when>
 </c:choose>
@@ -149,10 +150,15 @@
                         </li>
                     </ul>
                 </li>
-
-                <li id="traveler"><a href="#">투어 신청</a></li>
-                <li id="guide" style="display:none;"><a href="#">투어 등록</a></li>
-
+                <c:choose>
+                    <c:when test="${sessionScope.pertypeResult=='여행자'}">
+                        <li id="traveler"><a href="#">투어 신청</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li id="guide"><a href="#">투어 등록</a></li>
+                    </c:otherwise>
+                </c:choose>
+                
                 <li><a href="#">추천 발자국</a></li>
             </ul>
         </div>

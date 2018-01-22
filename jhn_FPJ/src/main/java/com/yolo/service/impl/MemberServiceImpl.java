@@ -30,7 +30,6 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	 public String login(String id, String password){
         String dbPassword = memberDao.loginIdCheck(id);
-        String dbPertype = memberDao.pertypeCheck(id);
         if(dbPassword==null)	//아이디가 존재하지 않은 경우
             return "0";	
         else{	//아이디가 존재한 경우
@@ -47,6 +46,12 @@ public class MemberServiceImpl implements MemberService {
             }
         }
     }
+	
+	@Override
+	public String pertypeResult(String id) {
+		String pertypeResult = memberDao.pertypeCheck(id);
+		return pertypeResult;
+	}
 	
 	@Override
 	@Transactional
@@ -149,6 +154,7 @@ public class MemberServiceImpl implements MemberService {
 		memberDao.updateMembers(vo);
 	}
 	
+	@Override
 	//회원 탈퇴하기 위한 비밀번호 확인
 	public int checkRw(String id, String password) {
 		Map<String, String> map = new HashMap<String, String>();
@@ -158,14 +164,27 @@ public class MemberServiceImpl implements MemberService {
 		return resultCk;
 	}
 	
+	@Override
 	//회원 탈퇴 수행
 	public void deleteMember(String id) {
 		memberDao.deleteMember(id);
 	}
 	
+	@Override
 	//아이디 중복 확인
 	public int idCheck(String id) {
 		int cnt = memberDao.idCheckCnt(id);
 		return cnt;
+	}
+	
+	@Override
+	//비밀번호 찾기
+	//회원 탈퇴하기 위한 비밀번호 확인
+	public String searchPW(String id, String email) {
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("id", id);
+		map.put("email", email);
+		String resultCk = memberDao.searchPassword(map);
+		return resultCk;
 	}
 }

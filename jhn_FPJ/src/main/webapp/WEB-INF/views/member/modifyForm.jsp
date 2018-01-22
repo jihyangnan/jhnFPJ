@@ -12,8 +12,8 @@
 <script src="resources/js/jquery-3.2.1.min.js"></script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js?var=1"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script src="resources/js/main.js?" type="text/javascript" charset="UTF-8"></script>
-<script src="resources/js/member.js?var=1" type="text/javascript" charset="UTF-8"></script>
+<script src="resources/js/main.js?var=1" type="text/javascript" charset="UTF-8"></script>
+<script src="resources/js/member.js?var=2" type="text/javascript" charset="UTF-8"></script>
 <script type="text/javascript">
 function init(){
     //성별 정보 가져오기
@@ -52,7 +52,7 @@ function init(){
                 <input type="password" name="password" id="pwd_hide" class="join_text" required >
                 <input type="checkbox" id="pwd_show" class="vertical_stayle">
                 <span>비밀번호 표시</span> 
-                <span style="color: #929292;"> (비밀번호는 최대 6자~12자까지 입력    가능합니다.)</span><br /> 
+                <span style="color: #929292; font-size:9pt;"> (비밀번호는 최대 6자~12자까지 입력    가능합니다.)</span><br /> 
                 
                 <label><b>성별</b></label> 
                 <span>${memberIf.sex}</span><br />
@@ -167,7 +167,7 @@ function init(){
                     <input type="checkbox" id="etc" class="vertical_stayle" name="interest_land" value="" > 기타 
                 </span> 
                 <input type="text" placeholder="국가/대륙/도시" id="etc_trip" class="vertical_stayle" /> 
-                <input type="text" name="interestLandTotal" id="interest_land_total" style="display:none;" value="${memberIf.interestLandTotal}" /> <br /> 
+                <input type="text" name="interestLandTotal" id="interest_land_total" style="display:none;"  value="${memberIf.interestLandTotal}" /> <br /> 
                 
                 <label><b>여행 스타일</b></label> 
                 <span class="int_trip"> 
@@ -186,16 +186,16 @@ function init(){
                     <input type="checkbox" name="tripStyle" class="vertical_stayle" value="패키지 여행"> 패키지 여행
                 </span> 
                 <span class="int_trip"> 
-                    <input type="checkbox" name="tripStyle" class="vertical_stayle" value="투어 여행"> 투어 여행
+                    <input type="checkbox" name="tripStyle" class="vertical_stayle" value="투어 여행"> 투어
                 </span> <br /> 
                 
                 <label><b>국내 여행 횟수</b></label> 
                     <input type="text" name="incTripno" class="phone" value="${memberIf.incTripno}"> 
-                <span style="color: #929292;">(국내 여행 경험 횟수를 적어주세요.)</span> <br /> 
+                <span style="color: #929292; font-size:9pt;">(국내 여행 경험 횟수를 적어주세요.)</span> <br /> 
                 
                 <label><b>해외 여행 횟수</b></label> 
                     <input type="text" name="outcTripno" class="phone" value="${memberIf.outcTripno}"> 
-                <span style="color: #929292;">(해외 여행 경험 횟수를 적어주세요.)</span> <br /> <br />
+                <span style="color: #929292; font-size:9pt;">(해외 여행 경험 횟수를 적어주세요.)</span> <br /> <br />
                 <div style="text-align: center;">
                     <span><input type="hidden" name="user_image" value=""></span>
                 </div>
@@ -203,7 +203,7 @@ function init(){
                 <br />
                 <br />
                 <div id="save_cancel">
-                    <button type="button" class="join_btn" onclick="checkValue();">회원 정보 수정</button>
+                    <button type="button" class="join_btn" onclick="ModifycheckValue()">회원 정보 수정</button>
                 </div>
                 <br />
                 <br />

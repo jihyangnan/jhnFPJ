@@ -41,7 +41,7 @@
                 <input type="password" name="password" id="pwd_hide" class="join_text" required>
                 <input type="checkbox" id="pwd_show" class="vertical_stayle">
                 <span>비밀번호 표시</span> 
-                <span style="color: #929292;"> (비밀번호는 최대 6자~12자까지 입력    가능합니다.)</span><br /> 
+                <span style="color: #929292; font-size:9pt;"> (비밀번호는 최대 6자~12자까지 입력    가능합니다.)</span><br /> 
                 
                 <label><b>성별</b></label> 
                 <input type="radio" value="남자" name="sex" id="man" checked> 남자 &nbsp;&nbsp;&nbsp; 
@@ -175,15 +175,15 @@
                     <input type="checkbox" name="tripStyle" class="vertical_stayle" value="패키지 여행">패키지 여행
                 </span> 
                 <span class="int_trip"> 
-                    <input type="checkbox" name="tripStyle" class="vertical_stayle" value="투어 여행">투어 여행
+                    <input type="checkbox" name="tripStyle" class="vertical_stayle" value="투어 여행">투어
                 </span> <br /> 
                 <label><b>국내 여행 횟수</b></label>
                 <input type="text" name="incTripno" class="phone" value="0"> 
-                <span style="color: #929292;">(국내 여행 경험 횟수를 적어주세요.)</span> <br /> 
+                <span style="color: #929292; font-size:9pt;">(국내 여행 경험 횟수를 적어주세요.)</span> <br /> 
                 
                 <label><b>해외 여행 횟수</b></label> 
                 <input type="text" name="outcTripno" class="phone" value="0"> 
-                <span style="color: #929292;">(해외 여행 경험 횟수를 적어주세요.)</span> <br /> <br />
+                <span style="color: #929292; font-size:9pt;">(해외 여행 경험 횟수를 적어주세요.)</span> <br /> <br />
                 <div style="text-align: center;">
                     <span><input type="hidden" name="user_image" value=""></span>
                 </div>

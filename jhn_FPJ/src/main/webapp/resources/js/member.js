@@ -83,7 +83,9 @@ function setInterest_landComboValue(val){
 		for(var j=0; j<interest_land_list.length; j++)
 		{
 			if(interest_land[i].value.trim() == interest_land_list[j].trim()){
-				interest_land[i].checked = true;
+				if(interest_land_list[j].trim() != ""){	//받아오는 값이 공백이 아닐 경우(기타 값이 공백이 아닐 경우)
+					interest_land[i].checked = true;
+				}
 			}
 			if(interest_land_list[j].indexOf("etc-") != -1)
 			{
@@ -275,3 +277,75 @@ function sendCheckValue(){
 	}
 }
 ///////////////////////////////////로그인 아이디 체크//////////////////////////////////////////////////////
+/////////////////////////////회원 정보 변경 저장///////////////////////
+function etccheck(){
+	/*-----기타값 넣기 ---*/
+	if($('#etc').is(":checked")) //체크되면
+	{
+		var etc_trip = "";
+		$('#etc_trip').keyup(function(){
+			etc_trip = $(this).val();
+			$("#etc").val("etc-" + etc_trip);
+		});
+	}else{
+		
+		$("#etc").val("");
+		$("#etc_trip").val("");
+	}
+}
+function ModifycheckValue(){
+	etccheck();
+	if(document.getElementById("etc_trip").value != ""){
+		document.getElementById("etc").value = "etc-" + document.getElementById("etc_trip").value;
+	}
+	//관심 여행지 값 구하기
+	var interest_total = "";
+	var str = "";
+	$("input[name=interest_land]:checked").each(function(){
+		var interest = $(this).val();
+		interest_total = interest_total + ", " + interest ;
+		str = interest_total.substr(1,interest_total.length);		
+	});
+	if(str == "" || str == "null" || str == null || str == 0 || str == undefined){
+		$("[name=interestLandTotal]").val(" ");
+	}else{
+		$("[name=interestLandTotal]").val(str);
+	}
+	
+	//비밀번호 크기 조절 (비밀번호는 최대 6자~12자까지 입력 가능합니다.)
+	if(6 <= $("[name=password]").val().length || $("[name=password]").val().length >= 12){
+	}else{
+		alert("비밀번호는 최대 6자~12자까지 입력 가능합니다. \n 정확히 입력 해주세요. ");
+		return false;
+	}
+	// 입력 확인
+	if(document.userInfo.id.value == ""){
+		alert("아이디를 입력하세요.");
+		return false;
+	}else if(document.userInfo.password.value == ""){
+		alert("비밀번호를 입력하세요.");
+		return false;
+	}else if(document.userInfo.year.value == "" || document.userInfo.year.value.length < 4){
+		alert("년도를 정확히 입력하세요.");
+		return false;
+	}else if(document.userInfo.addressnum.value == ""){
+		alert("주소를 정확히 입력해주세요.");
+		return false;
+	}else if(document.userInfo.address1.value == ""){
+		alert("주소를 정확히 입력해주세요.");
+		return false;
+	}else if(document.userInfo.email_id.value == ""){
+		alert("이메일을 입력해주세요.");
+		return false;
+	}else if(document.userInfo.phone2.value == ""){
+		alert("핸드폰 번호를 입력해 주세요.");
+		return false;
+	}else if(document.userInfo.phone3.value == ""){
+		alert("핸드폰 번호를 입력해 주세요.");
+		return false;
+	}else{
+		document.getElementById('frm').submit();
+		return true;
+	}
+
+}

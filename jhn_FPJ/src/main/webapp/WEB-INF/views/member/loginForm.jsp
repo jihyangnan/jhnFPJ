@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="resources/css/bodyreset.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/mainstyle.css?var=1" />
-<link rel="stylesheet" type="text/css" href="resources/css/member.css?var=1" />
+<link rel="stylesheet" type="text/css" href="resources/css/member.css?var=2" />
 <script src="resources/js/jquery-3.2.1.min.js"></script>
 <script src="resources/js/main.js?var=2" type="text/javascript" charset="UTF-8"></script>
 <script>
@@ -32,18 +32,18 @@ $(document).ready(function(){
         <form class="loginpage" name="loginInfo" method="post" action="memberLoginAction.do">
             <div class="imgcontainer"><h1>Login</h1></div>
             <div class="container" id="login_page">
-                <label><h5> <b>ID</b> </h5></label> 
+                <label><h5></h5><b>ID</b></label> 
                 <input type="text" placeholder="Enter ID" name="id" required id="userId"/> 
                 
-                <label><h5><b>Password</b></h5></label> 
+                <label><b>Password</b></label> 
                 <input type="password" placeholder="Enter Password" name="password" required /> 
                 <input type="submit" class="login_btn" value="Login" onclick="saveId()" /> 
-                <input type="checkbox" name="id_save" id="idSaveCheck"/>ID 저장
+                <input type="checkbox" name="id_save" id="idSaveCheck"/> ID 저장
             </div>
 
             <div class="container" style="background-color: #f1f1f1">
                 <a href="joinForm.do"><button type="button" class="joinbtn">회원가입</button></a>
-                <a href="searchPasswordForm.do"><span class="psw">Password 찾기</span></a>
+                <a href="searchPasswordForm.do"><span class="psw"><b>Password 찾기</b></span></a>
             </div>
         </form>
     </div>

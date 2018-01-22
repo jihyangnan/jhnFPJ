@@ -1,4 +1,8 @@
 @charset "EUC-KR";
+input[type=checkbox], input[type=radio]{
+	margin-top:-1px;
+	vertical-align: middle;
+}
 @media (min-width:1080px){
 	#login_box{
 		margin:0px auto;
@@ -22,6 +26,7 @@
 }
 .loginpage {
     border: 3px solid #f1f1f1;
+    margin-top:50px;
 }
 .login_btn{
 	background-color: #80c7ff;
@@ -69,7 +74,7 @@
 .container {
     padding: 16px;
 	width:100%;
-	font-size:10pt;
+	font-size:11pt;
 }
 
 span.psw {
@@ -375,10 +380,7 @@ span.psw {
 	font-size:10pt;
 	padding:20px 0px;
 }
-#userId{
-    width:150px;
-    height:30px;
-}
+
 .use_text{
 	font-size:10pt;
     padding:30px 0px;
@@ -419,4 +421,16 @@ span.psw {
 }
 .join_ustbtn:hover {
     opacity: 0.8;
+}
+/*---------비밀번호 찾기 결과 값 가져오기 ------------------*/
+.result_result{
+	padding:10px 0px;
+}
+.result_subject{
+	width:100px;
+	display:inline-block;
+    font-size: 14pt;
+}
+.result_text{
+	font-size: 14pt;
 }
