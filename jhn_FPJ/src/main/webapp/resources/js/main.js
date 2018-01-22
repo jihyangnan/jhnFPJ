@@ -226,3 +226,43 @@ function setAddress() {
         }
     }).open();
 }
+
+//************************로그인 시 ID 저장 기능 ******************************//
+function saveId(){
+	if($('#idSaveCheck').is(":checked")){
+		setCookie("id", $("#userId").val(), 7);
+	}else{
+		setCookie("id", $("#userId").val(), 0);
+	}
+}
+
+function setCookie(cookieName, value, exdays){
+	var exdate = new Date();
+	exdate.setDate(exdate.getDate() + exdays);
+	document.cookie = cookieName + "=" + escape(value) + "; path=/; expires=" + exdate.toGMTString() + ";"
+	alert(doucment.cookie);
+}
+
+function deleteCooke(cookieName){
+	var expireDate = new Date();
+	expireDate.setDate(expireDate.getDate()-1);
+	document.cookie = cookieName + "=" + "; expires=" + expireDate.toGMTString();
+}
+
+function getCookie(cookieName){
+	cookieName = cookieName + "=";
+	if(document.cookie.length > 0 ){
+		var start = document.cookie.indexOf(cookieName);
+		var cookieValue = '';
+		if(start != -1){	//쿠키에 존재한다면
+			start += cookieName.length;
+			var end = document.cookie.indexOf(';', start);
+			if(end == -1){
+				end = document.cookie.length;
+				cookieValue = document.cookie.substring(start, end);
+				return unescape(cookieValue);
+				
+			}
+		}
+	}
+}

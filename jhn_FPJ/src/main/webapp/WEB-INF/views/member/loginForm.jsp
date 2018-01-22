@@ -14,7 +14,17 @@
 <link rel="stylesheet" type="text/css" href="resources/css/mainstyle.css?var=1" />
 <link rel="stylesheet" type="text/css" href="resources/css/member.css?var=1" />
 <script src="resources/js/jquery-3.2.1.min.js"></script>
-<script src="resources/js/main.js?var=1" type="text/javascript" charset="UTF-8"></script>
+<script src="resources/js/main.js?var=2" type="text/javascript" charset="UTF-8"></script>
+<script>
+$(document).ready(function(){
+    var userId = getCookie("id");
+    //저장된 쿠키값을 가져와서 ID 칸에 넣어준다. 없으면 공백으로 들어간다.
+    if(userId){ // ID를 저장해서 처음 페이지 로딩 시, 입력 칸에 저장된 ID가 표시된 상태라면
+        $('#userId').val(userId);
+        $('#idSaveCheck').attr("checked", true);    ///ID 저장하기를 체크 상태로 두기.
+    }
+});
+</script>
 </head>
 <body>
 <div id="body">
@@ -23,17 +33,17 @@
             <div class="imgcontainer"><h1>Login</h1></div>
             <div class="container" id="login_page">
                 <label><h5> <b>ID</b> </h5></label> 
-                <input type="text" placeholder="Enter ID" name="id" required /> 
+                <input type="text" placeholder="Enter ID" name="id" required id="userId"/> 
                 
                 <label><h5><b>Password</b></h5></label> 
                 <input type="password" placeholder="Enter Password" name="password" required /> 
-                <input type="submit" class="login_btn" value="Login" /> 
-                <input type="checkbox" name="id_save" />ID 저장
+                <input type="submit" class="login_btn" value="Login" onclick="saveId()" /> 
+                <input type="checkbox" name="id_save" id="idSaveCheck"/>ID 저장
             </div>
 
             <div class="container" style="background-color: #f1f1f1">
                 <a href="joinForm.do"><button type="button" class="joinbtn">회원가입</button></a>
-                <a href="SearchPasswordForm.do"><span class="psw">Password 찾기</span></a>
+                <a href="searchPasswordForm.do"><span class="psw">Password 찾기</span></a>
             </div>
         </form>
     </div>

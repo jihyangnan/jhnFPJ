@@ -55,7 +55,6 @@ public class MemberController  extends HttpServlet{
 	public ModelAndView login(String id, String password, HttpSession session) throws SQLException{
 	        ModelAndView mav = new ModelAndView();
 	        String result = memberService.login(id, password);
-	        System.out.println("result " + result);
 			 if(result == "1"){
 			    session.setAttribute("sessionID", id);
 				 mav.setViewName("redirect:/");
@@ -143,6 +142,7 @@ public class MemberController  extends HttpServlet{
 		return "member/idCheckForm";
 	}
     
+    //-----------------아이디 중복 확인 실행
     @ResponseBody
     @RequestMapping(value="MemberIdCheckAction.do", method=RequestMethod.POST)
     public void MemberIdCheckAction(@RequestParam("id") String id, HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
@@ -158,16 +158,12 @@ public class MemberController  extends HttpServlet{
 			out.println(cnt);
         	out.close();
 		}
-    	
-    	//request.getParameter("id=" + result);
-    	
-    	/*if(id_cnt==0) result = "0";
-    	else	result = "1";
-    	request.setAttribute("id_cntResult", id_cnt);
-    	request.setAttribute("useId", id);
-    	response.setContentType("text/html;charset=euc-kr");
-    	//response.setContentType("text/html;charset=UTF-8");
-    	response.getWriter().write(result);*/
     }
+    
+  //-----------------비밀번호 찾기 화면 이동
+  	@RequestMapping(value="searchPasswordForm.do", method=RequestMethod.GET)
+  	public String searchPasswordForm(HttpServletRequest request, HttpServletResponse response) {
+  		return form+"searchPasswordForm";
+  	}
     
 }
