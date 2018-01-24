@@ -3,7 +3,72 @@
 <!-- 맵핑될 DAO 인터페이스의 Full name 을 줍니다. --> 
 <mapper namespace="com.yolo.dao.MemberDAO"> 
 <!-- 로그인 처리 -->
-    <select id="loginIdCheck" parameterType="String" resultType="String"> 
-        SELECT * FROM MEMBER WHERE id=#{id}
+    <select id="loginIdCheck" resultType="String"> 
+        SELECT password FROM MEMBER WHERE id=#{id}
+    </select>
+    <select id="pertypeCheck" resultType="String"> 
+        SELECT pertype FROM MEMBER WHERE id=#{id}
+    </select>
+<!--  로그인한 사용자 정보 조회 -->
+    <select id="memberInfo" resultType="com.yolo.vo.MemberVO">
+        SELECT 
+        id AS id, password AS password, sex AS sex, calender AS calender, 
+        TO_CHAR(birth, 'yyyy') AS year, TO_CHAR(birth, 'mm') AS month, TO_CHAR(birth, 'dd') AS day,
+        addressnum AS addressnum, address1 AS address1, address2 AS address2,
+        email AS email,
+        phone AS phone,
+        interest_land_total AS interestLandTotal,
+        trip_style_list AS tripStyleList,
+        inc_tripno AS incTripno,
+        outc_tripno AS outcTripno,
+        pertype AS pertype
+        FROM MEMBER WHERE id=#{id}
+    </select>
+    
+    <!--  회원 가입 -->
+    <insert id="insertMembers" parameterType="com.yolo.vo.MemberVO">
+        INSERT INTO MEMBER
+        (id, password, sex, calender, birth, addressnum, address1, address2, email, phone, interest_land_total, trip_style_list, inc_tripno, outc_tripno, pertype) 
+        VALUES (#{id}, #{password}, #{sex}, #{calender}, #{birth}, #{addressnum}, #{address1}, #{address2}, #{email}, #{phone}, #{interestLandTotal}, #{tripStyleList},#{incTripno}, #{outcTripno}, #{pertype})        
+    </insert>
+    
+    <!-- 회원 정보 수정 -->
+    <update id="updateMembers" parameterType="com.yolo.vo.MemberVO">
+        UPDATE MEMBER SET
+        password = #{password},
+        calender = #{calender},
+        birth = #{birth},
+        addressnum = #{addressnum},
+        address1 = #{address1},
+        address2 = #{address2},
+        email = #{email},
+        phone = #{phone},
+        interest_land_total = #{interestLandTotal},
+        trip_style_list = #{tripStyleList},
+        inc_tripno = #{incTripno},
+        outc_tripno = #{outcTripno}
+        WHERE id=#{id}
+    </update>
+    
+    <!-- 회원 탈퇴 -->
+    <!-- 회원 삭제 -->
+    <delete id="deleteMember">
+        DELETE FROM MEMBER WHERE id=#{id}
+    </delete>
+    
+    <!-- 회원 탈퇴를 위한 비밀번호 찾기 -->
+    <select id="checkPassword" resultType="int" parameterType="HashMap">
+        SELECT COUNT(*) FROM MEMBER WHERE id=#{id} AND password=#{password}
+    </select>
+    
+    <!-- 아이디 중복 체크 -->
+    <select id="idCheckCnt" resultType="int">
+         SELECT COUNT(id) AS cnt FROM MEMBER WHERE id=#{id} -->
+       <!--  SELECT ID FROM JSP_MEMBER WHERE id=#{id} -->
+    </select>
+    <!-- 비밀번호 찾기 -->
+        <!-- 회원 탈퇴를 위한 비밀번호 찾기 -->
+    <select id="searchPassword" resultType="String" parameterType="HashMap">
+        SELECT password FROM MEMBER WHERE id=#{id} AND email=#{email}
     </select>
 </mapper>

@@ -1,35 +1,36 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%
-    String contentPage = request.getParameter("contentPage");
-System.out.println("contentPage : " + contentPage);
-    if(contentPage == null) {contentPage="mainView.jsp";}
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE>
 <html>
 <head>
 <title>YOLO</title>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="resources/css/bodyreset.css?var=1" />
 <link rel="stylesheet" type="text/css" href="resources/css/mainstyle.css?var=2" />
 <script src="resources/js/jquery-3.2.1.min.js"></script>
-<script src="resources/js/main.js" type="text/javascript"></script>
+<script src="resources/js/main.js" type="text/javascript" charset="UTF-8"></script>
 </head>
 <body>
 <div id="body">
-    <div id="header"><!-- -Menu ½ÃÀÛ -->
+    <div id="header"><!-- -Menu ì‹œìž‘ -->
         <jsp:include page="menu.jsp" flush="true" />
-    </div><!-- -Menu ³¡ -->
+    </div><!-- -Menu ë -->
     
-    <div id="main"><!------- Content ½ÃÀÛ ---------->
-        <jsp:include page="<%=contentPage%>"  />
-    </div><!-------- Content ³¡ ----------->
+    <div id="main"><!------- Content ì‹œìž‘ ---------->
+        <c:set var="contentPage" value="${param.contentPage}"/>
+            <c:if test="${contentPage==null}">
+            
+                <jsp:include page="mainView.jsp" />
+            </c:if>
+        <jsp:include page="${contentPage }"  />
+    </div><!-------- Content ë ----------->
 
-    <div id="footer"><!-- -Footer ½ÃÀÛ -->
+    <div id="footer"><!-- -Footer ì‹œìž‘ -->
         <jsp:include page="footer.jsp" flush="true" />
-    </div>  <!-- -Footer ³¡ -->
+    </div>  <!-- -Footer ë -->
 
-</div><!-- id="body" ÀÎ div ³¡ -->
+</div><!-- id="body" ì¸ div ë -->
 </body>
 </html>

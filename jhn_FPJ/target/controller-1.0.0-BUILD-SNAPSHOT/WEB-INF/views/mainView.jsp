@@ -1,29 +1,26 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%
-    String topsrc = request.getContextPath();
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <title>YOLO</title>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
 <div id="body">
-	<!------------------ Content ½ÃÀÛ ------------------------->
+	<!------------------ Content ì‹œìž‘ ------------------------->
 	<div>
 	    <label id="main_view1"><img
 	        src="resources/images/main/main_view1.gif"></label>
 	</div>
 	
-	<!-- ÃßÃµ°ú °øÁö»çÇ× ¶óÀÎ-->
+	<!-- ì¶”ì²œê³¼ ê³µì§€ì‚¬í•­ ë¼ì¸-->
 	<div id="main_rec_notice">
-	<!---------ÃßÃµÅõ¾î---------->
+	<!---------ì¶”ì²œíˆ¬ì–´---------->
 	    <div id="main_rec" style="display: inline-block;" align="center">
 	        <ul style="display: inline-block; float: left;">
-	            <li class="main_recommends">&nbsp;<ÀÎ±â Åõ¾î></li>
-	            <li class="main_more"><a href="#">+´õº¸±â</a></li>
+	            <li class="main_recommends">&nbsp;<ì¸ê¸° íˆ¬ì–´></li>
+	            <li class="main_more"><a href="#">+ë”ë³´ê¸°</a></li>
 	            <li>
 	                <ul>
 	                   <li><a href="#"><img class="tour_slide_img" src="resources/images/main/tour_asia.jpg"></a></li>
@@ -32,27 +29,27 @@
 	                </ul>
 	                <div id="slide_basic">
 	                    <ul>
-	                        <li class="slide_demo" onclick="slide_current(1)">¾Æ½Ã¾Æ</li>
-	                        <li class="slide_demo" onclick="slide_current(2)">¾Æ¸Þ¸®Ä«</li>
-	                        <li class="slide_demo" onclick="slide_current(3)">À¯·´</li>
+	                        <li class="slide_demo" onclick="slide_current(1)">ì•„ì‹œì•„</li>
+	                        <li class="slide_demo" onclick="slide_current(2)">ì•„ë©”ë¦¬ì¹´</li>
+	                        <li class="slide_demo" onclick="slide_current(3)">ìœ ëŸ½</li>
 	                    </ul>
 	                </div>
 	            </li>
 	        </ul>
 	        <ul class="rec_foot">
-	            <li class="main_recommends2"><ÃßÃµ ¹ßÀÚ±¹></li>
-	            <li class="main_more" style="padding-right: 10px;"><a href="#">+´õº¸±â</a></li>
+	            <li class="main_recommends2"><ì¶”ì²œ ë°œìžêµ­></li>
+	            <li class="main_more" style="padding-right: 10px;"><a href="#">+ë”ë³´ê¸°</a></li>
 	            <li>
 	                <ul>
-	                    <li><!-----------------------ÃßÃµ ¹ßÀÚ±¹------------------->
+	                    <li><!-----------------------ì¶”ì²œ ë°œìžêµ­------------------->
 	                        <div class="table-users">
 	                            <div class="header">Users</div>
 	                            <div class="foot_table">
 	                                <table>
 	                                    <tr>
-	                                        <th>¿©Çà ±¹°¡</th>
-	                                        <th width="25%">´Ð³×ÀÓ</th>
-	                                        <th width="60%">¹ßÀÚ±¹ Á¦¸ñ</th>
+	                                        <th>ì—¬í–‰ êµ­ê°€</th>
+	                                        <th width="25%">ë‹‰ë„¤ìž„</th>
+	                                        <th width="60%">ë°œìžêµ­ ì œëª©</th>
 	                                    </tr>
 	
 	                                    <tr>
@@ -105,42 +102,42 @@
 	        </ul>
 	    </div>
 	    
-	   <!-------°øÁö»çÇ×-------->
-	    <div class="main_notice"><°øÁö»çÇ×></div>
+	   <!-------ê³µì§€ì‚¬í•­-------->
+	    <div class="main_notice"><ê³µì§€ì‚¬í•­></div>
 	    <br/>
 	    <br/>
 	    <div align="center">
 	        <table class="notice_tb">
 		        <tr>
-		            <th>³»¿ë</th>
-		            <th class="notice_td">µî·ÏÀÏ</th>
+		            <th>ë‚´ìš©</th>
+		            <th class="notice_td">ë“±ë¡ì¼</th>
 		        </tr>
 		        <tr>
-		            <td>°øÁö»çÇ× ³»¿ëÀÔ´Ï´Ù.1</td>
+		            <td>ê³µì§€ì‚¬í•­ ë‚´ìš©ìž…ë‹ˆë‹¤.1</td>
 		            <td class="notice_td">2017-11-25</td>
 		        </tr>
 		        <tr>
-		            <td>°øÁö»çÇ× ³»¿ëÀÔ´Ï´Ù.2</td>
+		            <td>ê³µì§€ì‚¬í•­ ë‚´ìš©ìž…ë‹ˆë‹¤.2</td>
 		            <td class="notice_td">2017-11-26</td>
 		        </tr>
 		        <tr>
-		            <td>°øÁö»çÇ× ³»¿ëÀÔ´Ï´Ù.3</td>
+		            <td>ê³µì§€ì‚¬í•­ ë‚´ìš©ìž…ë‹ˆë‹¤.3</td>
 		            <td class="notice_td">2017-11-27</td>
 		        </tr>
 		        <tr>
-		            <td>°øÁö»çÇ× ³»¿ëÀÔ´Ï´Ù.4</td>
+		            <td>ê³µì§€ì‚¬í•­ ë‚´ìš©ìž…ë‹ˆë‹¤.4</td>
 		            <td class="notice_td">2017-11-28</td>
 		        </tr>
 		        <tr>
-		            <td>°øÁö»çÇ× ³»¿ëÀÔ´Ï´Ù.5</td>
+		            <td>ê³µì§€ì‚¬í•­ ë‚´ìš©ìž…ë‹ˆë‹¤.5</td>
 		            <td class="notice_td">2017-11-29</td>
 		        </tr>
 	        </table>
 		</div>
 	</div>
-<!------------------------ Content ³¡ ---------------------------->
-</div><!-- id="body" ÀÎ div ³¡ -->
-<!-- main ÀÎ±âÅõ¾î ½½¶óÀÌµå ÀÚ¹Ù½ºÅ©¸³Æ® -->
+<!------------------------ Content ë ---------------------------->
+</div><!-- id="body" ì¸ div ë -->
+<!-- main ì¸ê¸°íˆ¬ì–´ ìŠ¬ë¼ì´ë“œ ìžë°”ìŠ¤í¬ë¦½íŠ¸ -->
 <script>
     var myIndex = 0;
     carousel();
@@ -199,5 +196,4 @@
     }
 </script>
 </body>
-</html>
 </html>

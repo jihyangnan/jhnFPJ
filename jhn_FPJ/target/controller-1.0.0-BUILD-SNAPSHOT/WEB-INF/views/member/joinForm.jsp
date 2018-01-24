@@ -1,117 +1,119 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%
-    request.setCharacterEncoding("euc-kr"); //ÀÎÄÚµù Ã³¸®
+    request.setCharacterEncoding("UTF-8"); //ì¸ì½”ë”© ì²˜ë¦¬
 %>    
 <!DOCTYPE>
 <html>
 <head>
-<title>È¸¿ø°¡ÀÔ</title>
-<meta http-equiv="Content-Type" content="text/html;" charset="EUC-KR">
+<title>íšŒì›ê°€ìž…</title>
+<meta http-equiv="Content-Type" content="text/html;" charset="UTF-8">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="resources/css/bodyreset.css" />
 <link rel="stylesheet" type="text/css" href="resources/css/mainstyle.css" />
-<link rel="stylesheet" type="text/css" href="resources/css/login.css?var=1" />
-<script src="resources/js/jquery-3.2.1.min.js"></script>
-<script src="resources/js/main.js?var=2" type="text/javascript" charset="EUC-KR"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/member.css?var=2" />
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="resources/js/jquery-3.2.1.min.js"></script>
+<script src="resources/js/main.js?var=2" type="text/javascript" charset="UTF-8"></script>
+<script src="resources/js/member.js?var=2" type="text/javascript" charset="UTF-8"></script>
 </head>
 <body>
 <div id="body">
-    <form method="post" action="MemberJoinAction.do" id="frm" name="userInfo">
-        <!------------------ Content ½ÃÀÛ ------------------------->
+    <form method="post" action="memberJoinAction.do" id="frm" name="userInfo">
+        <!------------------ Content ì‹œìž‘ ------------------------->
         <div id="join_box">
             <div class="imgcontainer">
-                <h1>È¸¿ø°¡ÀÔ</h1>
+                <h1>íšŒì›ê°€ìž…</h1>
             </div>
 
-            <div class="container" id="join_page" style="width: 90%;">
+            <div class="container" id="join_page" style="width: 95%;">
                 <label><b>ID</b></label>
-                <!-- ¾ÆÀÌµð ÀÔ·Â¶õ¿¡´Â Å°º¸µå ÀÔ·Â½Ã ¹ß»ýÇÏ´Â onkeydown ÀÌº¥Æ® ¹ß»ý / »ç¿ëÀÚ°¡ Áßº¹Ã¼Å©¸¦ ÇÏ°í ³­ µÚ ¾ÆÀÌµð ÀÔ·Â¶õ¿¡ »ç¿ë °¡´ÉÇÑ ¾ÆÀÌµð¸¦ Áö¿ì°í »õ·Î¿î ¾ÆÀÌµð¸¦ ÀÔ·Â ½Ã  
-         Áßº¹Ã¼Å©°¡ µÇÁö ¾ÊÀº °ÍÀ¸·Î Ã³¸®ÇÏ±â À§ÇÔ-->
-                <input type="text" name="id" class="join_text" onkeydown="inputIdChk();" required>
-                <button type="button" class="btn btn-primary" onClick="openIdChk();">Áßº¹È®ÀÎ</button>
-                <br /> <input type="hidden" name="idDuplication" value="idUncheck">
-                <!-- ¾ÆÀÌµð Áßº¹Ã¼Å©¸¦ Çß´ÂÁö ÆÇ´ÜÇÏ±â À§ÇÑ ºÎºÐ, value°ªÀÌ idUncheckÀÌ¸é Áßº¹Ã¼Å©¸¦ ÇÏÁö ¾ÊÀº °Í -->
+                <!-- ì•„ì´ë”” ìž…ë ¥ëž€ì—ëŠ” í‚¤ë³´ë“œ ìž…ë ¥ì‹œ ë°œìƒí•˜ëŠ” onkeydown ì´ë²¤íŠ¸ ë°œìƒ / ì‚¬ìš©ìžê°€ ì¤‘ë³µì²´í¬ë¥¼ í•˜ê³  ë‚œ ë’¤ ì•„ì´ë”” ìž…ë ¥ëž€ì— ì‚¬ìš© ê°€ëŠ¥í•œ ì•„ì´ë””ë¥¼ ì§€ìš°ê³  ìƒˆë¡œìš´ ì•„ì´ë””ë¥¼ ìž…ë ¥ ì‹œ  
+         ì¤‘ë³µì²´í¬ê°€ ë˜ì§€ ì•Šì€ ê²ƒìœ¼ë¡œ ì²˜ë¦¬í•˜ê¸° ìœ„í•¨-->
+                <input type="text" name="id" class="join_text" onkeydown="inputIdChk();" id="userId" required/>
+                <button type="button" class="btn btn-primary" onClick="openIdChk();">ì¤‘ë³µí™•ì¸</button>
+                <br /> 
+                <input type="hidden" name="idDuplication" value="idUncheck"/>
+                <!-- ì•„ì´ë”” ì¤‘ë³µì²´í¬ë¥¼ í–ˆëŠ”ì§€ íŒë‹¨í•˜ê¸° ìœ„í•œ ë¶€ë¶„, valueê°’ì´ idUncheckì´ë©´ ì¤‘ë³µì²´í¬ë¥¼ í•˜ì§€ ì•Šì€ ê²ƒ -->
                 
                 <label><b>Password</b></label> 
-                <input type="password" name="password" id="pwd_hide" class="join_text" required>
-                <input type="checkbox" id="pwd_show" class="vertical_stayle">
-                <span>ºñ¹Ð¹øÈ£ Ç¥½Ã</span> 
-                <span style="color: #929292;"> (ºñ¹Ð¹øÈ£´Â ÃÖ´ë 6ÀÚ~12ÀÚ±îÁö ÀÔ·Â    °¡´ÉÇÕ´Ï´Ù.)</span><br /> 
+                <input type="password" name="password" id="pwd_hide" class="join_text" required/>
+                <input type="checkbox" id="pwd_show" class="vertical_stayle"/>
+                <span>ë¹„ë°€ë²ˆí˜¸ í‘œì‹œ</span> 
+                <span style="color: #929292; font-size:9pt;"> (ë¹„ë°€ë²ˆí˜¸ëŠ” ìµœëŒ€ 6ìž~12ìžê¹Œì§€ ìž…ë ¥    ê°€ëŠ¥í•©ë‹ˆë‹¤.)</span><br /> 
                 
-                <label><b>¼ºº°</b></label> 
-                <input type="radio" value="³²ÀÚ" name="sex" id="man" checked> ³²ÀÚ &nbsp;&nbsp;&nbsp; 
-                <input type="radio" value="¿©ÀÚ" name="sex" id="female"> ¿©ÀÚ<br /> 
-                <label><b>»ý³â¿ùÀÏ</b></label> 
-                <input type="radio" value="¾ç·Â" name="calender" id="solar" checked>  ¾ç·Â &nbsp;&nbsp;&nbsp; 
-                <input type="radio" value="À½·Â"  name="calender" id="lunar"> À½·Â 
-                <input type="text" name="year" class="borth" placeholder="³â(4ÀÚ)" id="year" required>³â
+                <label><b>ì„±ë³„</b></label> 
+                <input type="radio" value="ë‚¨ìž" name="sex" id="man" checked/> ë‚¨ìž &nbsp;&nbsp;&nbsp; 
+                <input type="radio" value="ì—¬ìž" name="sex" id="female"/> ì—¬ìž<br /> 
+                <label><b>ìƒë…„ì›”ì¼</b></label> 
+                <input type="radio" value="ì–‘ë ¥" name="calender" id="solar" checked/>  ì–‘ë ¥ &nbsp;&nbsp;&nbsp; 
+                <input type="radio" value="ìŒë ¥"  name="calender" id="lunar"/> ìŒë ¥ 
+                <input type="text" name="year" class="borth" placeholder="ë…„(4ìž)" id="year" required/>ë…„
                 <select class="borth" id="month" name="month">
-                    <option value="01" selected>1¿ù</option>
-                    <option value="02">2¿ù</option>
-                    <option value="03">3¿ù</option>
-                    <option value="04">4¿ù</option>
-                    <option value="05">5¿ù</option>
-                    <option value="06">6¿ù</option>
-                    <option value="07">7¿ù</option>
-                    <option value="08">8¿ù</option>
-                    <option value="09">9¿ù</option>
-                    <option value="10">10¿ù</option>
-                    <option value="11">11¿ù</option>
-                    <option value="12">12¿ù</option>
+                    <option value="01" selected>1ì›”</option>
+                    <option value="02">2ì›”</option>
+                    <option value="03">3ì›”</option>
+                    <option value="04">4ì›”</option>
+                    <option value="05">5ì›”</option>
+                    <option value="06">6ì›”</option>
+                    <option value="07">7ì›”</option>
+                    <option value="08">8ì›”</option>
+                    <option value="09">9ì›”</option>
+                    <option value="10">10ì›”</option>
+                    <option value="11">11ì›”</option>
+                    <option value="12">12ì›”</option>
                 </select> 
                 
                 <select class="borth" id="day" name="day">
-                    <option value="01" selected>1ÀÏ</option>
-                    <option value="02">2ÀÏ</option>
-                    <option value="03">3ÀÏ</option>
-                    <option value="04">4ÀÏ</option>
-                    <option value="05">5ÀÏ</option>
-                    <option value="06">6ÀÏ</option>
-                    <option value="07">7ÀÏ</option>
-                    <option value="08">8ÀÏ</option>
-                    <option value="09">9ÀÏ</option>
-                    <option value="10">10ÀÏ</option>
-                    <option value="11">11ÀÏ</option>
-                    <option value="12">12ÀÏ</option>
-                    <option value="13">13ÀÏ</option>
-                    <option value="14">14ÀÏ</option>
-                    <option value="15">15ÀÏ</option>
-                    <option value="16">16ÀÏ</option>
-                    <option value="17">17ÀÏ</option>
-                    <option value="18">18ÀÏ</option>
-                    <option value="19">19ÀÏ</option>
-                    <option value="20">20ÀÏ</option>
-                    <option value="21">21ÀÏ</option>
-                    <option value="22">22ÀÏ</option>
-                    <option value="23">23ÀÏ</option>
-                    <option value="24">24ÀÏ</option>
-                    <option value="25">25ÀÏ</option>
-                    <option value="26">26ÀÏ</option>
-                    <option value="27">27ÀÏ</option>
-                    <option value="28">28ÀÏ</option>
-                    <option value="29">29ÀÏ</option>
-                    <option value="30">30ÀÏ</option>
-                    <option value="31">31ÀÏ</option>
+                    <option value="01" selected>1ì¼</option>
+                    <option value="02">2ì¼</option>
+                    <option value="03">3ì¼</option>
+                    <option value="04">4ì¼</option>
+                    <option value="05">5ì¼</option>
+                    <option value="06">6ì¼</option>
+                    <option value="07">7ì¼</option>
+                    <option value="08">8ì¼</option>
+                    <option value="09">9ì¼</option>
+                    <option value="10">10ì¼</option>
+                    <option value="11">11ì¼</option>
+                    <option value="12">12ì¼</option>
+                    <option value="13">13ì¼</option>
+                    <option value="14">14ì¼</option>
+                    <option value="15">15ì¼</option>
+                    <option value="16">16ì¼</option>
+                    <option value="17">17ì¼</option>
+                    <option value="18">18ì¼</option>
+                    <option value="19">19ì¼</option>
+                    <option value="20">20ì¼</option>
+                    <option value="21">21ì¼</option>
+                    <option value="22">22ì¼</option>
+                    <option value="23">23ì¼</option>
+                    <option value="24">24ì¼</option>
+                    <option value="25">25ì¼</option>
+                    <option value="26">26ì¼</option>
+                    <option value="27">27ì¼</option>
+                    <option value="28">28ì¼</option>
+                    <option value="29">29ì¼</option>
+                    <option value="30">30ì¼</option>
+                    <option value="31">31ì¼</option>
                 </select> <br />
                 <div>
                     <ul>
-                        <li class="address_th"><label><b>ÁÖ¼Ò</b></label></li>
+                        <li class="address_th"><label><b>ì£¼ì†Œ</b></label></li>
                         <li class="address_text">
                             <ul>
                                 <li>
-                                    <span>(¿ìÆí¹øÈ£)&nbsp;</span> 
-                                    <input type="text" name="address_no" class="postcodify_postcode5" id="addr_no" value="" />
-                                    <button id="postcodify_search_button" class="btn btn-primary" onclick="setAddress()">°Ë»ö</button>
+                                    <span>(ìš°íŽ¸ë²ˆí˜¸)&nbsp;</span> 
+                                    <input type="text" name="addressnum" class="postcodify_postcode5" id="addr_no" value="" />
+                                    <button id="postcodify_search_button" class="btn btn-primary" onclick="setAddress()">ê²€ìƒ‰</button>
                                 </li>
                                 <li>
-                                    <span>(µµ·Î¸í)&nbsp;&nbsp;&nbsp;&nbsp;</span> 
+                                    <span>(ë„ë¡œëª…)&nbsp;&nbsp;&nbsp;&nbsp;</span> 
                                     <input type="text" name="address1" class="postcodify_address" id="addr1" value="" />
                                 </li>
                                 <li>
-                                    <span>(»ó¼¼ÁÖ¼Ò)&nbsp;</span> 
+                                    <span>(ìƒì„¸ì£¼ì†Œ)&nbsp;</span> 
                                     <input type="text" name="address2" class="postcodify_details" id="addr2" value="" /><br />
                                 </li>
                             </ul>
@@ -120,7 +122,7 @@
                 </div>
 
                 <label><b>E-Mail</b></label> 
-                <input type="text" name="email_id" class="email" /> @ 
+                <input type="text" name="email_id" class="email" id="email_id"/> @ 
                 <select class="email" style="width: 150px;" name="email_site" id="email_site">
                     <option selected>naver.com</option>
                     <option>gmail.com</option>
@@ -131,76 +133,76 @@
                     <option>paran.com</option>
                 </select> <br /> 
                 
-                <label><b>ÇÚµåÆù</b></label> 
-                <input type="text" name="phone1" class="phone" value="010" required>&nbsp;-&nbsp; 
-                <input type="text" name="phone2" class="phone" value="" required>&nbsp;-&nbsp; 
-                <input type="text" name="phone3" class="phone" value="" required> <br /> 
+                <label><b>í•¸ë“œí°</b></label> 
+                <input type="text" name="phone1" class="phone" value="010" required />&nbsp;-&nbsp; 
+                <input type="text" name="phone2" class="phone" value="" required />&nbsp;-&nbsp; 
+                <input type="text" name="phone3" class="phone" value="" required /> <br /> 
                 
-                <label><b>°¡ÀÔÀÚ À¯Çü</b></label> 
-                <input type="radio" value="°¡ÀÌµå" name="pertype" id="guide" > °¡ÀÌµå &nbsp;&nbsp;&nbsp; 
-                <input type="radio" value="¿©ÇàÀÚ" name="pertype" id="traveler" checked> ¿©ÇàÀÚ<br /> 
+                <label><b>ê°€ìž…ìž ìœ í˜•</b></label> 
+                <input type="radio" value="ê°€ì´ë“œ" name="pertype" id="guide" /> ê°€ì´ë“œ &nbsp;&nbsp;&nbsp; 
+                <input type="radio" value="ì—¬í–‰ìž" name="pertype" id="traveler" checked> ì—¬í–‰ìž<br /> 
                 
-                <label><b>°ü½É ¿©ÇàÁö</b></label> 
+                <label><b>ê´€ì‹¬ ì—¬í–‰ì§€</b></label> 
                 <span class="int_trip"> 
-                    <input type="checkbox" name="interest_land" class="vertical_stayle" value="¾Æ½Ã¾Æ" /> ¾Æ½Ã¾Æ
+                    <input type="checkbox" name="interest_land" class="vertical_stayle" value="ì•„ì‹œì•„" /> ì•„ì‹œì•„
                 </span> 
                 <span class="int_trip"> 
-                    <input type="checkbox" name="interest_land" class="vertical_stayle" value="¾Æ¸Þ¸®Ä«" /> ¾Æ¸Þ¸®Ä«
+                    <input type="checkbox" name="interest_land" class="vertical_stayle" value="ì•„ë©”ë¦¬ì¹´" /> ì•„ë©”ë¦¬ì¹´
                 </span> 
                 <span class="int_trip"> 
-                    <input type="checkbox" name="interest_land" class="vertical_stayle" value="À¯·´" /> À¯·´
+                    <input type="checkbox" name="interest_land" class="vertical_stayle" value="ìœ ëŸ½" /> ìœ ëŸ½
                 </span> 
                 <span class="int_trip"> 
-                    <input type="checkbox" id="etc" class="vertical_stayle" name="interest_land"  value="" onclick="etccheck()"> ±âÅ¸
+                    <input type="checkbox" id="etc" class="vertical_stayle" name="interest_land"  value="" /> ê¸°íƒ€
                 </span> 
-                <input type="text" placeholder="±¹°¡/´ë·ú/µµ½Ã" id="etc_trip" class="vertical_stayle"  /> 
-                <input type="text" name="interest_land_total" id="interest_land_total" style="display:none;" /> <br /> 
+                <input type="text" placeholder="êµ­ê°€/ëŒ€ë¥™/ë„ì‹œ" id="etc_trip" class="vertical_stayle"  /> 
+                <input type="text" name="interestLandTotal" id="interest_land_total" style="display:none;"/> <br /> 
                 
-                <label><b>¿©Çà ½ºÅ¸ÀÏ</b></label> 
+                <label><b>ì—¬í–‰ ìŠ¤íƒ€ì¼</b></label> 
                 <span class="int_trip"> 
-                    <input type="checkbox" name="trip_style" class="vertical_stayle" value="ÈÞ½Ä" /> ÈÞ½Ä
+                    <input type="checkbox" name="tripStyle" class="vertical_stayle" value="íœ´ì‹" /> íœ´ì‹
                 </span> 
                 <span class="int_trip"> 
-                    <input type="checkbox" name="trip_style" class="vertical_stayle" value="¾×Æ¼ºñÆ¼" /> ¾×Æ¼ºñÆ¼
+                    <input type="checkbox" name="tripStyle" class="vertical_stayle" value="ì•¡í‹°ë¹„í‹°" /> ì•¡í‹°ë¹„í‹°
                 </span> 
                 <span class="int_trip"> 
-                    <input type="checkbox" name="trip_style" class="vertical_stayle" value="Ä¿ÇÃ ¿©Çà" /> Ä¿ÇÃ ¿©Çà
+                    <input type="checkbox" name="tripStyle" class="vertical_stayle" value="ì»¤í”Œ ì—¬í–‰" /> ì»¤í”Œ ì—¬í–‰
                 </span> 
                 <span class="int_trip"> 
-                    <input type="checkbox" name="trip_style" class="vertical_stayle" value="È¥ÀÚ ³î±â">È¥ÀÚ ³î±â
+                    <input type="checkbox" name="tripStyle" class="vertical_stayle" value="í˜¼ìž ë†€ê¸°" />í˜¼ìž ë†€ê¸°
                 </span> 
                 <span class="int_trip"> 
-                    <input type="checkbox" name="trip_style" class="vertical_stayle" value="ÆÐÅ°Áö ¿©Çà">ÆÐÅ°Áö ¿©Çà
+                    <input type="checkbox" name="tripStyle" class="vertical_stayle" value="íŒ¨í‚¤ì§€ ì—¬í–‰" />íŒ¨í‚¤ì§€ ì—¬í–‰
                 </span> 
                 <span class="int_trip"> 
-                    <input type="checkbox" name="trip_style" class="vertical_stayle" value="Åõ¾î ¿©Çà">Åõ¾î ¿©Çà
+                    <input type="checkbox" name="tripStyle" class="vertical_stayle" value="íˆ¬ì–´ ì—¬í–‰" />íˆ¬ì–´
                 </span> <br /> 
-                <label><b>±¹³» ¿©Çà È½¼ö</b></label>
-                <input type="text" name="inc_tripno" class="phone" value="0"> 
-                <span style="color: #929292;">(±¹³» ¿©Çà °æÇè È½¼ö¸¦ Àû¾îÁÖ¼¼¿ä.)</span> <br /> 
+                <label><b>êµ­ë‚´ ì—¬í–‰ íšŸìˆ˜</b></label>
+                <input type="text" name="incTripno" class="phone" value="0" /> 
+                <span style="color: #929292; font-size:9pt;">(êµ­ë‚´ ì—¬í–‰ ê²½í—˜ íšŸìˆ˜ë¥¼ ì ì–´ì£¼ì„¸ìš”.)</span> <br /> 
                 
-                <label><b>ÇØ¿Ü ¿©Çà È½¼ö</b></label> 
-                <input type="text" name="outc_tripno" class="phone" value="0"> 
-                <span style="color: #929292;">(ÇØ¿Ü ¿©Çà °æÇè È½¼ö¸¦ Àû¾îÁÖ¼¼¿ä.)</span> <br /> <br />
+                <label><b>í•´ì™¸ ì—¬í–‰ íšŸìˆ˜</b></label> 
+                <input type="text" name="outcTripno" class="phone" value="0" /> 
+                <span style="color: #929292; font-size:9pt;">(í•´ì™¸ ì—¬í–‰ ê²½í—˜ íšŸìˆ˜ë¥¼ ì ì–´ì£¼ì„¸ìš”.)</span> <br /> <br />
                 <div style="text-align: center;">
-                    <span><input type="hidden" name="user_image" value=""></span>
+                    <span><input type="hidden" name="user_image" value="" /></span>
                 </div>
 
                 <br />
                 <br />
                 <br />
                 <div id="save_cancel">
-                    <button type="button" class="join_btn" onclick="checkValue();">È¸¿ø°¡ÀÔ</button>
-                    <a href="/"><button type="button" class="join_btn">Ãë¼Ò</button></a>
+                    <button type="button" class="join_btn" onclick="checkValue();">íšŒì›ê°€ìž…</button>
+                    <a href="/"><button type="button" class="join_btn">ì·¨ì†Œ</button></a>
                 </div>
                 <br />
                 <br />
                 <br />
             </div>
         </div>
-        <!------------------ Content ³¡ ------------------------->
+        <!------------------ Content ë ------------------------->
     </Form>
 </div>
-<!-- id="body" ÀÎ div ³¡ -->
+<!-- id="body" ì¸ div ë -->
 </body>
 </html>

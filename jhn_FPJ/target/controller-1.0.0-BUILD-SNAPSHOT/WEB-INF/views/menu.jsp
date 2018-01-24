@@ -1,182 +1,167 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<%
-    if (session.getAttribute("sessionID") == null) { //·Î±×ÀÎÀÌ ¾ÈµÇ¾úÀ» ¶§  
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%-- <% String userId = (String)session.getAttribute("sessionID"); %> --%>
+<c:choose>
+    <c:when test="${sessionID=='admin'}">
         <script type="text/javascript">
-            //´Ğ³×ÀÓ ¼û±è
+            //ë‹‰ë„¤ì„ í‘œì‹œ
             $(document).ready(function() {
-                var nickname = document.getElementById("nickname");
-                var pertype_admin = document.getElementById("admin");
-                var login_after_menu = $('.login_after');
-                var login_before_menu = $('.login_before');
-                if (nickname.style.display != "none") {
-                    nickname.style.display = "none"; //¼û±â±â
-                    login_after_menu.css('display', 'none');
-                    login_before_menu.css('display', 'inline-block');
-                    pertype_admin.style.display = "none";
-                }
-            });
-        </script>
-<%
-    }
-    else if(session.getAttribute("sessionID").equals("admin")){  //°ü¸®ÀÚ·Î ·Î±×ÀÎ ÇÏ¿´À» °æ¿ì  
-%>
-        <script type="text/javascript">
-        $(document).ready(function() {
             var nickname = document.getElementById("nickname");
             var pertype_admin = document.getElementById("admin");
-            
             var login_after_menu = $('.login_after');
             var login_before_menu = $('.login_before');
             
             if (nickname.style.display = "none") {
-                nickname.style.display = "inline-block"; //¼û±â±â
+                nickname.style.display = "inline-block"; //ìˆ¨ê¸°ê¸°
                 login_after_menu.css('display', 'none');
                 login_before_menu.css('display', 'none');
             }
-            pertype_admin.style.display = "inline-block"; //¼û±â±â
+            pertype_admin.style.display = "inline-block"; //ìˆ¨ê¸°ê¸°
             
         });
         </script>
-<%      
-    }else {  //»ç¿ëÀÚ·Î ·Î±×ÀÎ ÇÏ¿´À» °æ¿ì
-%>
-        <script type="text/javascript">
-            //´Ğ³×ÀÓ Ç¥½Ã
-            $(document).ready(function() {
-                var nickname = document.getElementById("nickname");
-                var pertype_admin = document.getElementById("admin");
-                var login_after_menu = $('.login_after');
-                var login_before_menu = $('.login_before');
-                
-                if (nickname.style.display = "none") {
-                    nickname.style.display = "inline-block"; //¼û±â±â
-                    login_after_menu.css('display', 'inline-block');
-                    login_before_menu.css('display', 'none');
-                    pertype_admin.style.display = "none";
-                }
-            });
-        </script>
-<%
-    }
-%>
-<!--·Î°íºÎÅÍ ¸Ş´º¹Ù±îÁö-->
+    </c:when>
+    <c:when test="${sessionID!=null}">
+	    <script type="text/javascript">
+	            //ë‹‰ë„¤ì„ í‘œì‹œ
+	            $(document).ready(function() {
+	                var nickname = document.getElementById("nickname");
+	                var pertype_admin = document.getElementById("admin");
+	                var login_after_menu = $('.login_after');
+	                var login_before_menu = $('.login_before');
+	                
+	                if (nickname.style.display = "none") {
+	                    nickname.style.display = "inline-block"; //ìˆ¨ê¸°ê¸°
+	                    login_after_menu.css('display', 'inline-block');
+	                    login_before_menu.css('display', 'none');
+	                    pertype_admin.style.display = "none";
+	                }
+	            });
+	            
+	        </script>
+    </c:when>
+</c:choose>
+<!--ë¡œê³ ë¶€í„° ë©”ë‰´ë°”ê¹Œì§€-->
 <div class="wid_size">
     <div id="logo_menu">
-        <div id="main_logo"><!--·Î°í-->
+        <div id="main_logo"><!--ë¡œê³ -->
             <a href="/"><img src="resources/images/main/logo.png" /></a>
         </div>
-        <div id="nickname"><!--´Ğ³×ÀÓ-->
-            <img src="resources/images/main/foot.png"><%=session.getAttribute("sessionID")%> ´Ô
-            <a href="memberLogoutAction.do">[·Î±×¾Æ¿ô]</a>
+        <div id="nickname"><!--ë‹‰ë„¤ì„-->
+            <img src="resources/images/main/foot.png">${sessionID} ë‹˜
+            <a href="memberLogoutAction.do"><font class="btn_logout">ë¡œê·¸ì•„ì›ƒ</font></a>
         </div>
-        <div id="main_bar"><!--¸Ş´º¹Ù-->
+        <div id="main_bar"><!--ë©”ë‰´ë°”-->
             <ul>
                 <li>
-                    <a href="loginForm.do" class="login_before" >·Î±×ÀÎ</a> 
-                    <a href="new_write.jsp" class="login_after">»õ¹ßÀÚ±¹ ÀÛ¼º</a> 
-                    <a href="Admin.do" id="admin" style="display:none;">°ü¸®ÀÚ ÆäÀÌÁö</a> 
+                    <a href="loginForm.do" class="login_before" >ë¡œê·¸ì¸</a> 
+                    <a href="newWriteForm.do" class="login_after" style="display:none;">ìƒˆë°œìêµ­ ì‘ì„±</a> 
+                    <a href="Admin.do" id="admin" style="display:none;">ê´€ë¦¬ì í˜ì´ì§€</a> 
                     <ul>
                         <li class="login_before">
-                            <a href="joinForm.do">È¸¿ø°¡ÀÔ</a>
+                            <a href="joinForm.do">íšŒì›ê°€ì…</a>
                         </li>
-                        <li class="login_after">
-                            <a href="resources/member/view/mypage.jsp">³ªÀÇ ¹ßÀÚ±¹</a>
+                        <li class="login_after" style="display:none;">
+                            <a href="resources/member/view/mypage.jsp">ë‚˜ì˜ ë°œìêµ­</a>
                         </li>
-                        <li class="login_after">
-                            <a href="resources/member/view/mybasket.jsp">Àå¹Ù±¸´Ï</a>
+                        <li class="login_after" style="display:none;">
+                            <a href="resources/member/view/mybasket.jsp">ì¥ë°”êµ¬ë‹ˆ</a>
                         </li>
-                        <li class="login_after">
-                            <a href="resources/member/view/apply_tour_story.jsp">Åõ¾î ½ÅÃ» ³»¿ª</a>
+                        <li class="login_after" style="display:none;">
+                            <a href="resources/member/view/apply_tour_story.jsp">íˆ¬ì–´ ì‹ ì²­ ë‚´ì—­</a>
                         </li>
-                        <li class="login_after">
-                            <a href="MemberInfoAction.do">È¸¿øÁ¤º¸¼öÁ¤</a>
+                        <li class="login_after" style="display:none;">
+                            <a href="memberInfoAction.do?userId=${sessionID}">íšŒì›ì •ë³´ìˆ˜ì •</a>
                         </li>
-                        <li class="login_after" id="user">
-                            <a href="DeleteForm.do">È¸¿øÅ»Åğ</a>
+                        <li class="login_after" id="user" style="display:none;">
+                            <a href="deleteForm.do">íšŒì›íƒˆí‡´</a>
                         </li>
                     </ul>
                 </li>
 
-                <li><a href="#">¾Æ½Ã¾Æ</a>
+                <li><a href="#">ì•„ì‹œì•„</a>
                     <ul>
                         <li>
-                            <a href="asia_korea.jsp">ÇÑ±¹ <img src="resources/images/main/korea.png" /></a>
+                            <a href="asia_korea.jsp">í•œêµ­ <img src="resources/images/main/korea.png" /></a>
                         </li>
                         <li>
-                            <a href="asia_japen.jsp">ÀÏº» <img src="resources/images/main/japan.png" /></a>
+                            <a href="asia_japen.jsp">ì¼ë³¸ <img src="resources/images/main/japan.png" /></a>
                         </li>
                         <li>
-                            <a href="#">Áß±¹ <img src="resources/images/main/china.png" /></a>
+                            <a href="#">ì¤‘êµ­ <img src="resources/images/main/china.png" /></a>
                         </li>
                         <li>
-                            <a href="#">´ë¸¸ <img src="resources/images/main/taiwan.png" /></a>
+                            <a href="#">ëŒ€ë§Œ <img src="resources/images/main/taiwan.png" /></a>
                         </li>
                         <li>
-                            <a href="#">ÅÂ±¹ <img src="resources/images/main/thailand.png" /></a>
+                            <a href="#">íƒœêµ­ <img src="resources/images/main/thailand.png" /></a>
                         </li>
                         <li>
-                            <a href="#">º£Æ®³² <img src="resources/images/main/vietnam.png" /></a>
+                            <a href="#">ë² íŠ¸ë‚¨ <img src="resources/images/main/vietnam.png" /></a>
                         </li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="#">¾Æ¸Ş¸®Ä«</a>
+                    <a href="#">ì•„ë©”ë¦¬ì¹´</a>
                     <ul>
                         <li>
-                            <a href="#">¹Ì±¹ <img src="resources/images/main/uk.png" /></a>
+                            <a href="#">ë¯¸êµ­ <img src="resources/images/main/uk.png" /></a>
                         </li>
                         <li>
-                            <a href="#">Æä·ç <img src="resources/images/main/peru.png" /></a>
+                            <a href="#">í˜ë£¨ <img src="resources/images/main/peru.png" /></a>
                         </li>
                         <li>
-                            <a href="#">Ä³³ª´Ù <img src="resources/images/main/canada.png" /></a>
+                            <a href="#">ìºë‚˜ë‹¤ <img src="resources/images/main/canada.png" /></a>
                         </li>
                         <li>
-                            <a href="#">¸ß½ÃÄÚ <img src="resources/images/main/mexico.png" /></a>
+                            <a href="#">ë©•ì‹œì½” <img src="resources/images/main/mexico.png" /></a>
                         </li>
                         <li>
-                            <a href="#">ºê¶óÁú <img src="resources/images/main/brazil.png" /></a>
+                            <a href="#">ë¸Œë¼ì§ˆ <img src="resources/images/main/brazil.png" /></a>
                         </li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="#">À¯·´</a>
+                    <a href="#">ìœ ëŸ½</a>
                     <ul>
                         <li>
-                            <a href="#">ÀÌÅ»¸®¾Æ <img src="resources/images/main/italy.png" /></a>
+                            <a href="#">ì´íƒˆë¦¬ì•„ <img src="resources/images/main/italy.png" /></a>
                         </li>
                         <li>
-                            <a href="#">ÇÁ¶û½º <img src="resources/images/main/france.png" /></a>
+                            <a href="#">í”„ë‘ìŠ¤ <img src="resources/images/main/france.png" /></a>
                         </li>
                         <li>
-                            <a href="#">½ºÆäÀÎ <img src="resources/images/main/spain.png" /></a>
+                            <a href="#">ìŠ¤í˜ì¸ <img src="resources/images/main/spain.png" /></a>
                         </li>
                         <li>
-                            <a href="#">½ºÀ§½º <img src="resources/images/main/switzerland.png" /></a>
+                            <a href="#">ìŠ¤ìœ„ìŠ¤ <img src="resources/images/main/switzerland.png" /></a>
                         </li>
                         <li>
-                            <a href="#">¿µ±¹ <img src="resources/images/main/uk.png" /></a>
+                            <a href="#">ì˜êµ­ <img src="resources/images/main/uk.png" /></a>
                         </li>
                         <li>
-                            <a href="#">µ¶ÀÏ <img src="resources/images/main/germany.png" /></a>
+                            <a href="#">ë…ì¼ <img src="resources/images/main/germany.png" /></a>
                         </li>
                         <li>
-                            <a href="#">Ã¼ÄÚ <img src="resources/images/main/czech.png" /></a>
+                            <a href="#">ì²´ì½” <img src="resources/images/main/czech.png" /></a>
                         </li>
                     </ul>
                 </li>
-
-                <li id="traveler"><a href="#">Åõ¾î ½ÅÃ»</a></li>
-                <li id="guide" style="display:none;"><a href="#">Åõ¾î µî·Ï</a></li>
-
-                <li><a href="#">ÃßÃµ ¹ßÀÚ±¹</a></li>
+                <c:choose>
+                    <c:when test="${sessionScope.pertypeResult=='ì—¬í–‰ì'}">
+                        <li id="traveler"><a href="#">íˆ¬ì–´ ì‹ ì²­</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li id="guide"><a href="#">íˆ¬ì–´ ë“±ë¡</a></li>
+                    </c:otherwise>
+                </c:choose>
+                
+                <li><a href="#">ì¶”ì²œ ë°œìêµ­</a></li>
             </ul>
         </div>
     </div>
 </div>
-
 <hr class="menu_hr">
