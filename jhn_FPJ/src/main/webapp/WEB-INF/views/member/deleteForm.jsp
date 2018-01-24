@@ -28,7 +28,7 @@
                 <ul>
                     <li class="del_first_tex">ID</li>
                     <li class="del_first_val">
-                    <input type="text" value="${sessionID}" readonly name="id" class="del_id_text">
+                    <input type="text" value="${sessionID}" readonly name="id" class="del_id_text"/>
                     </li>
                 </ul>
                 <label class="del_first_tex">Password</label>

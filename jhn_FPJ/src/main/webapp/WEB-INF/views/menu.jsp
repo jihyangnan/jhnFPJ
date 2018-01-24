@@ -56,7 +56,7 @@
             <ul>
                 <li>
                     <a href="loginForm.do" class="login_before" >로그인</a> 
-                    <a href="new_write.jsp" class="login_after" style="display:none;">새발자국 작성</a> 
+                    <a href="newWriteForm.do" class="login_after" style="display:none;">새발자국 작성</a> 
                     <a href="Admin.do" id="admin" style="display:none;">관리자 페이지</a> 
                     <ul>
                         <li class="login_before">

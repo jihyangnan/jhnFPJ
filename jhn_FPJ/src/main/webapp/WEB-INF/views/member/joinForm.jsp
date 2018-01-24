@@ -31,25 +31,25 @@
                 <label><b>ID</b></label>
                 <!-- 아이디 입력란에는 키보드 입력시 발생하는 onkeydown 이벤트 발생 / 사용자가 중복체크를 하고 난 뒤 아이디 입력란에 사용 가능한 아이디를 지우고 새로운 아이디를 입력 시  
          중복체크가 되지 않은 것으로 처리하기 위함-->
-                <input type="text" name="id" class="join_text" onkeydown="inputIdChk();" id="userId" required>
+                <input type="text" name="id" class="join_text" onkeydown="inputIdChk();" id="userId" required/>
                 <button type="button" class="btn btn-primary" onClick="openIdChk();">중복확인</button>
                 <br /> 
-                <input type="hidden" name="idDuplication" value="idUncheck">
+                <input type="hidden" name="idDuplication" value="idUncheck"/>
                 <!-- 아이디 중복체크를 했는지 판단하기 위한 부분, value값이 idUncheck이면 중복체크를 하지 않은 것 -->
                 
                 <label><b>Password</b></label> 
-                <input type="password" name="password" id="pwd_hide" class="join_text" required>
-                <input type="checkbox" id="pwd_show" class="vertical_stayle">
+                <input type="password" name="password" id="pwd_hide" class="join_text" required/>
+                <input type="checkbox" id="pwd_show" class="vertical_stayle"/>
                 <span>비밀번호 표시</span> 
                 <span style="color: #929292; font-size:9pt;"> (비밀번호는 최대 6자~12자까지 입력    가능합니다.)</span><br /> 
                 
                 <label><b>성별</b></label> 
-                <input type="radio" value="남자" name="sex" id="man" checked> 남자 &nbsp;&nbsp;&nbsp; 
-                <input type="radio" value="여자" name="sex" id="female"> 여자<br /> 
+                <input type="radio" value="남자" name="sex" id="man" checked/> 남자 &nbsp;&nbsp;&nbsp; 
+                <input type="radio" value="여자" name="sex" id="female"/> 여자<br /> 
                 <label><b>생년월일</b></label> 
-                <input type="radio" value="양력" name="calender" id="solar" checked>  양력 &nbsp;&nbsp;&nbsp; 
-                <input type="radio" value="음력"  name="calender" id="lunar"> 음력 
-                <input type="text" name="year" class="borth" placeholder="년(4자)" id="year" required>년
+                <input type="radio" value="양력" name="calender" id="solar" checked/>  양력 &nbsp;&nbsp;&nbsp; 
+                <input type="radio" value="음력"  name="calender" id="lunar"/> 음력 
+                <input type="text" name="year" class="borth" placeholder="년(4자)" id="year" required/>년
                 <select class="borth" id="month" name="month">
                     <option value="01" selected>1월</option>
                     <option value="02">2월</option>
@@ -134,12 +134,12 @@
                 </select> <br /> 
                 
                 <label><b>핸드폰</b></label> 
-                <input type="text" name="phone1" class="phone" value="010" required>&nbsp;-&nbsp; 
-                <input type="text" name="phone2" class="phone" value="" required>&nbsp;-&nbsp; 
-                <input type="text" name="phone3" class="phone" value="" required> <br /> 
+                <input type="text" name="phone1" class="phone" value="010" required />&nbsp;-&nbsp; 
+                <input type="text" name="phone2" class="phone" value="" required />&nbsp;-&nbsp; 
+                <input type="text" name="phone3" class="phone" value="" required /> <br /> 
                 
                 <label><b>가입자 유형</b></label> 
-                <input type="radio" value="가이드" name="pertype" id="guide" > 가이드 &nbsp;&nbsp;&nbsp; 
+                <input type="radio" value="가이드" name="pertype" id="guide" /> 가이드 &nbsp;&nbsp;&nbsp; 
                 <input type="radio" value="여행자" name="pertype" id="traveler" checked> 여행자<br /> 
                 
                 <label><b>관심 여행지</b></label> 
@@ -153,7 +153,7 @@
                     <input type="checkbox" name="interest_land" class="vertical_stayle" value="유럽" /> 유럽
                 </span> 
                 <span class="int_trip"> 
-                    <input type="checkbox" id="etc" class="vertical_stayle" name="interest_land"  value="" > 기타
+                    <input type="checkbox" id="etc" class="vertical_stayle" name="interest_land"  value="" /> 기타
                 </span> 
                 <input type="text" placeholder="국가/대륙/도시" id="etc_trip" class="vertical_stayle"  /> 
                 <input type="text" name="interestLandTotal" id="interest_land_total" style="display:none;"/> <br /> 
@@ -169,23 +169,23 @@
                     <input type="checkbox" name="tripStyle" class="vertical_stayle" value="커플 여행" /> 커플 여행
                 </span> 
                 <span class="int_trip"> 
-                    <input type="checkbox" name="tripStyle" class="vertical_stayle" value="혼자 놀기">혼자 놀기
+                    <input type="checkbox" name="tripStyle" class="vertical_stayle" value="혼자 놀기" />혼자 놀기
                 </span> 
                 <span class="int_trip"> 
-                    <input type="checkbox" name="tripStyle" class="vertical_stayle" value="패키지 여행">패키지 여행
+                    <input type="checkbox" name="tripStyle" class="vertical_stayle" value="패키지 여행" />패키지 여행
                 </span> 
                 <span class="int_trip"> 
-                    <input type="checkbox" name="tripStyle" class="vertical_stayle" value="투어 여행">투어
+                    <input type="checkbox" name="tripStyle" class="vertical_stayle" value="투어 여행" />투어
                 </span> <br /> 
                 <label><b>국내 여행 횟수</b></label>
-                <input type="text" name="incTripno" class="phone" value="0"> 
+                <input type="text" name="incTripno" class="phone" value="0" /> 
                 <span style="color: #929292; font-size:9pt;">(국내 여행 경험 횟수를 적어주세요.)</span> <br /> 
                 
                 <label><b>해외 여행 횟수</b></label> 
-                <input type="text" name="outcTripno" class="phone" value="0"> 
+                <input type="text" name="outcTripno" class="phone" value="0" /> 
                 <span style="color: #929292; font-size:9pt;">(해외 여행 경험 횟수를 적어주세요.)</span> <br /> <br />
                 <div style="text-align: center;">
-                    <span><input type="hidden" name="user_image" value=""></span>
+                    <span><input type="hidden" name="user_image" value="" /></span>
                 </div>
 
                 <br />
