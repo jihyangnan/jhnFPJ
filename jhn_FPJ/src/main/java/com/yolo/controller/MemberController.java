@@ -81,7 +81,7 @@ public class MemberController  extends HttpServlet{
 	//-----------------회원 가입 처리
     @RequestMapping(value="memberJoinAction.do", method=RequestMethod.POST)
     public String jointMember(MemberVO vo,  Model model){
-       // memberService.jointMember(vo);
+        memberService.jointMember(vo);
         model.addAttribute("joinInfo",vo);
         // * (/)의 유무에 차이
         // /member/list.do : 루트 디렉토리를 기준 /  member/list.do : 현재 디렉토리를 기준 /  member_list.jsp로 리다이렉트
