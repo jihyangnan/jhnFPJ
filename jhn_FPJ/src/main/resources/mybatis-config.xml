@@ -13,5 +13,6 @@
     <typeAliases>
         <typeAlias type="com.yolo.vo.MemberVO" alias="memberVO" />
         <typeAlias type="com.yolo.vo.YoloBoardVO" alias="yoloboardVO" />
+        <typeAlias type="com.yolo.vo.MypageVO" alias="mypageVO" />
     </typeAliases>
 </configuration>

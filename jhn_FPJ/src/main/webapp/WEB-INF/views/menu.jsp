@@ -63,7 +63,7 @@
                             <a href="joinForm.do">회원가입</a>
                         </li>
                         <li class="login_after" style="display:none;">
-                            <a href="resources/member/view/mypage.jsp">나의 발자국</a>
+                            <a href="myYoloboardList.do">나의 발자국</a>
                         </li>
                         <li class="login_after" style="display:none;">
                             <a href="resources/member/view/mybasket.jsp">장바구니</a>
@@ -80,82 +80,82 @@
                     </ul>
                 </li>
 
-                <li><a href="#">아시아</a>
+                <li><a href="continentPageForm.do?continent=아시아&english=Asia">아시아</a>
                     <ul>
                         <li>
-                            <a href="asia_korea.jsp">한국 <img src="resources/images/main/korea.png" /></a>
+                            <a href="countryPageForm.do?continent=아시아&country=한국&english=Korea"">한국 <img src="resources/images/main/korea.png" /></a>
                         </li>
                         <li>
-                            <a href="asia_japen.jsp">일본 <img src="resources/images/main/japan.png" /></a>
+                            <a href="countryPageForm.do?continent=아시아&country=일본&english=Japan">일본 <img src="resources/images/main/japan.png" /></a>
                         </li>
                         <li>
-                            <a href="#">중국 <img src="resources/images/main/china.png" /></a>
+                            <a href="countryPageForm.do?continent=아시아&country=중국&english=China">중국 <img src="resources/images/main/china.png" /></a>
                         </li>
                         <li>
-                            <a href="#">대만 <img src="resources/images/main/taiwan.png" /></a>
+                            <a href="countryPageForm.do?continent=아시아&country=대만&english=Taiwan">대만 <img src="resources/images/main/taiwan.png" /></a>
                         </li>
                         <li>
-                            <a href="#">태국 <img src="resources/images/main/thailand.png" /></a>
+                            <a href="countryPageForm.do?continent=아시아&country=태국&english=Thailand">태국 <img src="resources/images/main/thailand.png" /></a>
                         </li>
                         <li>
-                            <a href="#">베트남 <img src="resources/images/main/vietnam.png" /></a>
+                            <a href="countryPageForm.do?continent=아시아&country=베트남&english=Vietnam">베트남 <img src="resources/images/main/vietnam.png" /></a>
                         </li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="#">아메리카</a>
+                    <a href="continentPageForm.do?continent=아메리카&english=America">아메리카</a>
                     <ul>
                         <li>
-                            <a href="#">미국 <img src="resources/images/main/uk.png" /></a>
+                            <a href="countryPageForm.do?continent=아메리카&country=미국&english=USA">미국 <img src="resources/images/main/uk.png" /></a>
                         </li>
                         <li>
-                            <a href="#">페루 <img src="resources/images/main/peru.png" /></a>
+                            <a href="countryPageForm.do?continent=아메리카&country=페루&english=peru">페루 <img src="resources/images/main/peru.png" /></a>
                         </li>
                         <li>
-                            <a href="#">캐나다 <img src="resources/images/main/canada.png" /></a>
+                            <a href="countryPageForm.do?continent=아메리카&country=캐나다&english=Canada">캐나다 <img src="resources/images/main/canada.png" /></a>
                         </li>
                         <li>
-                            <a href="#">멕시코 <img src="resources/images/main/mexico.png" /></a>
+                            <a href="countryPageForm.do?continent=아메리카&country=멕시코&english=Mexico">멕시코 <img src="resources/images/main/mexico.png" /></a>
                         </li>
                         <li>
-                            <a href="#">브라질 <img src="resources/images/main/brazil.png" /></a>
+                            <a href="countryPageForm.do?continent=아메리카&country=브라질&english=Brazil">브라질 <img src="resources/images/main/brazil.png" /></a>
                         </li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="#">유럽</a>
+                    <a href="continentPageForm.do?continent=유럽&english=Europe">유럽</a>
                     <ul>
                         <li>
-                            <a href="#">이탈리아 <img src="resources/images/main/italy.png" /></a>
+                            <a href="countryPageForm.do?continent=유럽&country=이탈리아&english=Italia">이탈리아 <img src="resources/images/main/italy.png" /></a>
                         </li>
                         <li>
-                            <a href="#">프랑스 <img src="resources/images/main/france.png" /></a>
+                            <a href="countryPageForm.do?continent=유럽&country=프랑스&english=France">프랑스 <img src="resources/images/main/france.png" /></a>
                         </li>
                         <li>
-                            <a href="#">스페인 <img src="resources/images/main/spain.png" /></a>
+                            <a href="countryPageForm.do?continent=유럽&country=스페인&english=Spain">스페인 <img src="resources/images/main/spain.png" /></a>
                         </li>
                         <li>
-                            <a href="#">스위스 <img src="resources/images/main/switzerland.png" /></a>
+                            <a href="countryPageForm.do?continent=유럽&country=스위스&english=Suisse">스위스 <img src="resources/images/main/switzerland.png" /></a>
                         </li>
                         <li>
-                            <a href="#">영국 <img src="resources/images/main/uk.png" /></a>
+                            <a href="countryPageForm.do?continent=유럽&country=영국&english=UK">영국 <img src="resources/images/main/uk.png" /></a>
                         </li>
                         <li>
-                            <a href="#">독일 <img src="resources/images/main/germany.png" /></a>
+                            <a href="countryPageForm.do?continent=유럽&country=독일&english=Germany">독일 <img src="resources/images/main/germany.png" /></a>
                         </li>
                         <li>
-                            <a href="#">체코 <img src="resources/images/main/czech.png" /></a>
+                            <a href="countryPageForm.do?continent=유럽&country=체코&english=Czech">체코 <img src="resources/images/main/czech.png" /></a>
                         </li>
                     </ul>
                 </li>
                 <c:choose>
-                    <c:when test="${sessionScope.pertypeResult=='여행자'}">
-                        <li id="traveler"><a href="#">투어 신청</a></li>
+                    <c:when test="${sessionScope.pertypeResult=='가이드'}">
+                        <li id="traveler"><a href="#">투어 등록</a></li>
                     </c:when>
                     <c:otherwise>
-                        <li id="guide"><a href="#">투어 등록</a></li>
+                        <li id="guide"><a href="#">투어 신청</a></li>
                     </c:otherwise>
                 </c:choose>
                 

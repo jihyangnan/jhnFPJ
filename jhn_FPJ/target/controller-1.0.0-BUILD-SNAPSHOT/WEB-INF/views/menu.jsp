@@ -63,7 +63,7 @@
                             <a href="joinForm.do">회원가입</a>
                         </li>
                         <li class="login_after" style="display:none;">
-                            <a href="resources/member/view/mypage.jsp">나의 발자국</a>
+                            <a href="myYoloboardList.do">나의 발자국</a>
                         </li>
                         <li class="login_after" style="display:none;">
                             <a href="resources/member/view/mybasket.jsp">장바구니</a>
@@ -80,25 +80,25 @@
                     </ul>
                 </li>
 
-                <li><a href="#">아시아</a>
+                <li><a href="asiaPageForm.do?continent=아시아">아시아</a>
                     <ul>
                         <li>
-                            <a href="asia_korea.jsp">한국 <img src="resources/images/main/korea.png" /></a>
+                            <a href="koreaPageForm.do?country=한국"">한국 <img src="resources/images/main/korea.png" /></a>
                         </li>
                         <li>
-                            <a href="asia_japen.jsp">일본 <img src="resources/images/main/japan.png" /></a>
+                            <a href="japenPageForm.do?country=일본">일본 <img src="resources/images/main/japan.png" /></a>
                         </li>
                         <li>
-                            <a href="#">중국 <img src="resources/images/main/china.png" /></a>
+                            <a href="japenPageForm.do?country=중국">중국 <img src="resources/images/main/china.png" /></a>
                         </li>
                         <li>
-                            <a href="#">대만 <img src="resources/images/main/taiwan.png" /></a>
+                            <a href="japenPageForm.do?country=대만">대만 <img src="resources/images/main/taiwan.png" /></a>
                         </li>
                         <li>
-                            <a href="#">태국 <img src="resources/images/main/thailand.png" /></a>
+                            <a href="japenPageForm.do?country=태국">태국 <img src="resources/images/main/thailand.png" /></a>
                         </li>
                         <li>
-                            <a href="#">베트남 <img src="resources/images/main/vietnam.png" /></a>
+                            <a href="japenPageForm.do?continent=일본">베트남 <img src="resources/images/main/vietnam.png" /></a>
                         </li>
                     </ul>
                 </li>
@@ -107,19 +107,19 @@
                     <a href="#">아메리카</a>
                     <ul>
                         <li>
-                            <a href="#">미국 <img src="resources/images/main/uk.png" /></a>
+                            <a href="japenPageForm.do?continent=일본">미국 <img src="resources/images/main/uk.png" /></a>
                         </li>
                         <li>
-                            <a href="#">페루 <img src="resources/images/main/peru.png" /></a>
+                            <a href="japenPageForm.do?continent=일본">페루 <img src="resources/images/main/peru.png" /></a>
                         </li>
                         <li>
-                            <a href="#">캐나다 <img src="resources/images/main/canada.png" /></a>
+                            <a href="japenPageForm.do?continent=일본">캐나다 <img src="resources/images/main/canada.png" /></a>
                         </li>
                         <li>
-                            <a href="#">멕시코 <img src="resources/images/main/mexico.png" /></a>
+                            <a href="japenPageForm.do?continent=일본">멕시코 <img src="resources/images/main/mexico.png" /></a>
                         </li>
                         <li>
-                            <a href="#">브라질 <img src="resources/images/main/brazil.png" /></a>
+                            <a href="japenPageForm.do?continent=일본">브라질 <img src="resources/images/main/brazil.png" /></a>
                         </li>
                     </ul>
                 </li>
@@ -151,11 +151,11 @@
                     </ul>
                 </li>
                 <c:choose>
-                    <c:when test="${sessionScope.pertypeResult=='여행자'}">
-                        <li id="traveler"><a href="#">투어 신청</a></li>
+                    <c:when test="${sessionScope.pertypeResult=='가이드'}">
+                        <li id="traveler"><a href="#">투어 등록</a></li>
                     </c:when>
                     <c:otherwise>
-                        <li id="guide"><a href="#">투어 등록</a></li>
+                        <li id="guide"><a href="#">투어 신청</a></li>
                     </c:otherwise>
                 </c:choose>
                 
